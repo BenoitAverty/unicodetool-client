@@ -1,0 +1,21 @@
+{
+  "name": "unicodetool-client",
+  "version": "1.0.0",
+  "description": "React client to the unicodetool-api",
+  "main": "index.js",
+  "repository": "https://github.com/BenoitAverty/unicodetool-client",
+  "author": "Benoit AVERTY",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next"
+  },
+  "dependencies": {
+    "next": "^2.3.1",
+    "next-redux-wrapper": "^1.1.2",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
+    "redux": "^3.6.0",
+    "redux-cycles": "^0.4.0"
+  }
+}
