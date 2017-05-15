@@ -1,7 +1,11 @@
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
-import {increment} from '../redux/actions'
+import { increment } from '../redux/actions'
 
-const Dispatcher = (props) => <button onClick={props.onClick}>Dispatch an action</button>
+const Dispatcher = props => (
+  <button onClick={props.onClick}>Dispatch an action</button>
+)
 
-export default connect(null, dispatch => ({onClick: () => dispatch(increment())}))(Dispatcher)
+export default connect(null, dispatch => ({
+  onClick: () => dispatch(increment())
+}))(Dispatcher)
