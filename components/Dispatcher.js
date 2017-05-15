@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
-
+import { Button } from 'reactstrap'
 import { increment } from '../redux/actions'
 
 const Dispatcher = props => (
-  <button onClick={props.onClick}>Dispatch an action</button>
+  <Button color="success" onClick={props.onClick}>Dispatch an action</Button>
 )
 
 export default connect(null, dispatch => ({
