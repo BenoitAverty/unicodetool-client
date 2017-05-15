@@ -1,4 +1,5 @@
 import withRedux from 'next-redux-wrapper'
+import { Jumbotron } from 'reactstrap'
 
 import makeStore from '../redux/store'
 
@@ -8,7 +9,10 @@ import CounterWarning from '../components/CounterWarning'
 
 const Index = props => (
   <Layout>
-    <div>
+    <Jumbotron>
+      <h1 className='display-3'>Title</h1>
+    </Jumbotron>
+    <div style={{ 'text-align': 'center' }}>
       <CounterWarning count={props.count} maxCount={5} />
       <p>Next + Redux + Redux-Cycles : {props.count}</p>
       <Dispatcher />
