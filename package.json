@@ -11,7 +11,8 @@
     "test": "echo 'no tests yet'",
     "dev": "next src/",
     "build": "next build src/",
-    "start": "next start src/"
+    "start": "next start src/",
+    "prepush": "yarn run lint && git diff-files --quiet"
   },
   "dependencies": {
     "bootstrap": "4.0.0-alpha.6",
@@ -28,6 +29,7 @@
     "reselect": "^3.0.1"
   },
   "devDependencies": {
+    "husky": "^0.13.3",
     "prettier-standard": "^5.0.0"
   }
 }
