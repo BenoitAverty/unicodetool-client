@@ -7,7 +7,7 @@
   "author": "Benoit AVERTY",
   "license": "MIT",
   "scripts": {
-    "lint": "prettier-standard **/*.js",
+    "lint": "prettier-standard src/**/*.js",
     "test": "echo 'no tests yet'",
     "dev": "next src/",
     "build": "next build src/",
