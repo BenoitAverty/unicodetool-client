@@ -1,4 +1,4 @@
-import {createStore, applyMiddleware} from 'redux'
+import {createStore, applyMiddleware, compose} from 'redux'
 import {run} from '@cycle/run'
 import {createCycleMiddleware} from 'redux-cycles'
 
@@ -8,7 +8,9 @@ import cycles from './cycles'
 const cycleMiddleware = createCycleMiddleware()
 const {makeActionDriver} = cycleMiddleware
 
-const makeStore = (initialState) => createStore(reducer, initialState, applyMiddleware(cycleMiddleware))
+const composeEnhancers = typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const makeStore = (initialState) => createStore(reducer, initialState, composeEnhancers(applyMiddleware(cycleMiddleware)))
 
 run(cycles, { action: makeActionDriver() })
 
