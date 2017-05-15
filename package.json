@@ -9,9 +9,9 @@
   "scripts": {
     "lint": "prettier-standard **/*.js",
     "test": "echo 'no tests yet'",
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
+    "dev": "next src/",
+    "build": "next build src/",
+    "start": "next start src/"
   },
   "dependencies": {
     "bootstrap": "4.0.0-alpha.6",
