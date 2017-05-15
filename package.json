@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "lint": "prettier-standard **/*.js",
-    "dev": "next"
+    "dev": "next",
+    "test": "echo 'no tests yet'"
   },
   "dependencies": {
     "next": "^2.3.1",
