@@ -3,6 +3,7 @@ import { Jumbotron } from 'reactstrap'
 import Link from 'next/link'
 
 import makeStore from '../redux/store'
+import { changeSearch } from '../redux/actions'
 
 import Layout from '../components/Layout'
 import UnicodeSearchField from '../components/UnicodeSearchField'
@@ -34,13 +35,12 @@ const Index = props => (
   </Layout>
 )
 
+// Export the base compoenent for tests
 export const withoutRedux = Index
-export default withRedux(
-  makeStore,
-  state => state,
-  dispatch => ({
-    handleSearchChange: e => {
-      console.log(e)
-    }
-  })
-)(Index)
+
+// Connect to the store
+const mapStateToProps = state => ({ currentSearch: state.search.currentSearch })
+const mapDispatchToProps = dispatch => ({
+  handleSearchChange: s => dispatch(changeSearch(s))
+})
+export default withRedux(makeStore, mapStateToProps, mapDispatchToProps)(Index)

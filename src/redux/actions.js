@@ -1,1 +1,3 @@
-export const increment = () => ({ type: 'INCREMENT' })
+import { createAction } from 'redux-actions'
+
+export const changeSearch = createAction('CHANGE_SEARCH')
