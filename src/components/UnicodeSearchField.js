@@ -1,6 +1,11 @@
 const UnicodeSearchField = ({ value, onChange }) => (
-  <div className="UnicodeSearchField">
-    <input type="text" placeholder="Search for anything..." value={value} onChange={e => onChange(e.target.value)} />
+  <div className='UnicodeSearchField'>
+    <input
+      type='text'
+      placeholder='Search for anything...'
+      value={value}
+      onChange={e => onChange(e.target.value)}
+    />
     <style jsx>{`
       .UnicodeSearchField {
         margin: auto;

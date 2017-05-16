@@ -7,8 +7,8 @@
   "author": "Benoit AVERTY",
   "license": "MIT",
   "scripts": {
-    "lint": "prettier-standard src/**/*.js",
-    "test": "echo 'no tests yet'",
+    "lint": "prettier-standard src/**/*.js tests/**/*.js",
+    "test": "jest",
     "dev": "next src/",
     "build": "next build src/",
     "start": "next start src/",
@@ -29,7 +29,12 @@
     "reselect": "^3.0.1"
   },
   "devDependencies": {
+    "enzyme": "^2.8.2",
+    "enzyme-to-json": "^1.5.1",
     "husky": "^0.13.3",
-    "prettier-standard": "^5.0.0"
+    "jest": "^20.0.1",
+    "prettier-standard": "^5.0.0",
+    "react-addons-test-utils": "^15.5.1",
+    "react-test-renderer": "^15.5.4"
   }
 }

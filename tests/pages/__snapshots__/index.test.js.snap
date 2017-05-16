@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Index page matches snapshot 1`] = `
+<Layout>
+  <jf
+    tag="div"
+  >
+    <UnicodeSearchField
+      onChange={[Function]}
+      value="current search"
+    />
+    <p
+      data-jsx={475681380}
+    >
+      Examples: "
+      <a
+        data-jsx={475681380}
+        href="#"
+      >
+        U+0041
+      </a>
+      ", "
+      <a
+        data-jsx={475681380}
+        href="#"
+      >
+        GHOST
+      </a>
+      ", "
+      <a
+        data-jsx={475681380}
+        href="#"
+      >
+        à
+      </a>
+      ".
+       
+      <Link
+        href="/help"
+      >
+        <a
+          data-jsx={475681380}
+        >
+          More help and examples...
+        </a>
+      </Link>
+    </p>
+  </jf>
+  <_class
+    css="p[data-jsx=\\"475681380\\"] {text-align: center;}"
+    styleId={475681380}
+  />
+</Layout>
+`;
