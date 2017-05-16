@@ -14,22 +14,28 @@ exports[`Index page matches snapshot 1`] = `
     >
       Examples: "
       <a
+        className="suggestionLink"
         data-jsx={475681380}
         href="#"
+        onClick={[Function]}
       >
         U+0041
       </a>
       ", "
       <a
+        className="suggestionLink"
         data-jsx={475681380}
         href="#"
+        onClick={[Function]}
       >
         GHOST
       </a>
       ", "
       <a
+        className="suggestionLink"
         data-jsx={475681380}
         href="#"
+        onClick={[Function]}
       >
         à
       </a>

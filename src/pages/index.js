@@ -17,11 +17,29 @@ const Index = props => (
       />
       <p>
         Examples: "
-        <a href='#'>U+0041</a>
+        <a
+          className='suggestionLink'
+          href='#'
+          onClick={e => props.handleSearchChange('U+0041')}
+        >
+          U+0041
+        </a>
         ", "
-        <a href='#'>GHOST</a>
+        <a
+          className='suggestionLink'
+          href='#'
+          onClick={e => props.handleSearchChange('GHOST')}
+        >
+          GHOST
+        </a>
         ", "
-        <a href='#'>à</a>
+        <a
+          className='suggestionLink'
+          href='#'
+          onClick={e => props.handleSearchChange('à')}
+        >
+          à
+        </a>
         ".
         {' '}
         <Link href='/help'><a>More help and examples...</a></Link>
