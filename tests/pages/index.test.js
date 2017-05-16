@@ -1,6 +1,5 @@
 import { shallow, mount, render } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import { concat } from 'ramda'
 
 import { withoutRedux as Index } from '../../src/pages/index.js'
 

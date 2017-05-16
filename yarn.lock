@@ -2,11 +2,17 @@
 # yarn lockfile v1
 
 
-"@cycle/run@*":
+"@cycle/run@*", "@cycle/run@3.x":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@cycle/run/-/run-3.1.0.tgz#76df582a501d2d1b871f8f6decf263afae090384"
   dependencies:
     xstream "10.x"
+
+"@cycle/rxjs-run@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@cycle/rxjs-run/-/rxjs-run-7.0.0.tgz#f4c95d9a1b390e3a2e61706284f9e737e7de8aa8"
+  dependencies:
+    "@cycle/run" "3.x"
 
 abab@^1.0.3:
   version "1.0.3"
@@ -4328,7 +4334,7 @@ rx-lite@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/rx-lite/-/rx-lite-3.1.2.tgz#19ce502ca572665f3b647b10939f97fd1615f102"
 
-rxjs@^5.3.0:
+rxjs@^5.3.0, rxjs@^5.4.0:
   version "5.4.0"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.4.0.tgz#a7db14ab157f9d7aac6a56e655e7a3860d39bf26"
   dependencies:
