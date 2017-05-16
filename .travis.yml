@@ -5,3 +5,4 @@ script:
   # Check that linting does not modify files. If yes, that means the project wasn't properly linted.
   - yarn run lint && git diff-files --quiet
   - yarn test
+  - yarn run build
