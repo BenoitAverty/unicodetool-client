@@ -2,7 +2,7 @@
 
 exports[`Index page matches snapshot 1`] = `
 <Layout>
-  <jf
+  <Jumbotron
     tag="div"
   >
     <UnicodeSearchField
@@ -51,7 +51,7 @@ exports[`Index page matches snapshot 1`] = `
         </a>
       </Link>
     </p>
-  </jf>
+  </Jumbotron>
   <_class
     css="p[data-jsx=\\"475681380\\"] {text-align: center;}"
     styleId={475681380}
