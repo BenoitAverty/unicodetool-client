@@ -8,11 +8,12 @@
   "license": "MIT",
   "scripts": {
     "lint": "prettier-standard src/**/*.js tests/**/*.js",
+    "lint:check": "yarn run lint && git diff-files --exit-code --name-status */**/*.js",
     "test": "jest",
     "dev": "next src/",
     "build": "next build src/",
     "start": "next start src/",
-    "prepush": "yarn run lint && git diff-files --quiet"
+    "prepush": "yarn run lint:check"
   },
   "dependencies": {
     "@cycle/rxjs-run": "^7.0.0",
