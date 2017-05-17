@@ -16,6 +16,7 @@
     "prepush": "yarn run lint:check"
   },
   "dependencies": {
+    "@cycle/http": "^13.3.0",
     "@cycle/rxjs-run": "^7.0.0",
     "bootstrap": "4.0.0-alpha.6",
     "next": "^2.3.1",
