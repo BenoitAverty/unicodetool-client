@@ -1,7 +1,8 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import { run } from '@cycle/rxjs-run'
-import { createCycleMiddleware } from 'redux-cycles'
 import { makeHTTPDriver } from '@cycle/http'
+import { timeDriver } from '@cycle/time/rxjs'
+import { createCycleMiddleware } from 'redux-cycles'
 
 import reducer from './reducer'
 import cycles from './cycles'
@@ -21,7 +22,11 @@ export default function makeStore (initialState) {
     composeEnhancers(applyMiddleware(cycleMiddleware))
   )
 
-  run(cycles, { action: makeActionDriver(), http: makeHTTPDriver() })
+  run(cycles, {
+    Action: makeActionDriver(),
+    Http: makeHTTPDriver(),
+    Time: timeDriver
+  })
 
   return store
 }

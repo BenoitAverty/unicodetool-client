@@ -1,11 +1,10 @@
 import { Observable } from 'rxjs'
-import { pipe, prop, not, isNil } from 'ramda'
 
-export default function search({ action }) {
+export default function search({ Action, Http, Time }) {
 
   return {
-    action: Observable.never(),
-    http: action.filter(a => a.payload !== '').mapTo({
+    Action: Observable.never(),
+    Http: Action.filter(a => a.payload !== '').mapTo({
       url: 'http://localhost:8080/graphql',
       category: 'codepoint-search',
       method: 'POST',
