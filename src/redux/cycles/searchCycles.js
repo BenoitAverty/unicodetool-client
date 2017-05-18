@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs'
 import { ifElse, prop, propEq, isEmpty, not, isNil, pipe, trim, F } from 'ramda'
 
-import { changeSearch } from '../actions'
+import { changeSearch, searchStarted, searchResultReceived } from '../actions'
 import { codepointSearchRequest } from './graphqlRequests'
 
 // Return true if a string is neither undefined nor empty
@@ -17,8 +17,16 @@ export default function search({ Action, Http, Time }) {
     .filter(isNotBlank)
     .map(codepointSearchRequest)
 
+  const searchStartedAction$ = codepointRequest$.mapTo(searchStarted())
+
+  const searchResultAction$ = Http
+    .select(codepointSearchRequest.category)
+    .switch()
+    .map(prop('body'))
+    .map(searchResultReceived)
+
   return {
-    Action: Observable.never(),
+    Action: Observable.merge(searchStartedAction$, searchResultAction$),
     Http: codepointRequest$
   }
 }
