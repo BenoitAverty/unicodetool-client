@@ -12,6 +12,7 @@ export default function search({ Action, Http, Time }) {
     .filter(propEq('type', 'CHANGE_SEARCH'))
     .let(Time.debounce(250))
     .map(prop('payload'))
+    .distinctUntilChanged()
     .filter(isNotBlank)
     .map(codepointSearchRequest)
 

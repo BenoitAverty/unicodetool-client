@@ -80,4 +80,32 @@ describe('Search Cycles', () => {
     )
     Time.run(done)
   })
+
+  it('Doesn\'t send the same query twice', done => {
+    const Time = mockTimeSource({ interval: 125 })
+    const actionSource = Time.diagram('--a---bc--', {
+      a: changeSearch('U+0041'),
+      b: changeSearch('U+004'),
+      c: changeSearch('U+0041')
+    })
+    const { Http: httpSink } = search({ Action: actionSource, Time })
+
+    Time.assertEqual(
+      httpSink,
+      Time.diagram('----a------', {
+        a: {
+          url: 'http://localhost:8080/graphql',
+          category: 'codepoint-search',
+          method: 'POST',
+          send: {
+            query: findCodepointQuery,
+            variables: JSON.stringify({
+              value: 'U+0041'
+            })
+          }
+        }
+      })
+    )
+    Time.run(done)
+  })
 })
