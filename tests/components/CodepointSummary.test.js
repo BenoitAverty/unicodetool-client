@@ -17,7 +17,7 @@ describe('CodepointSummary component', () => {
 
       const comp = shallow(<CodepointSummary codepoint={codepoint} />)
 
-      expect(comp).toMatchSnapshot()
+      expect(toJson(comp)).toMatchSnapshot()
     })
   })
 })

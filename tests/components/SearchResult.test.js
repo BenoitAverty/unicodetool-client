@@ -8,7 +8,7 @@ describe('SearchResult component', () => {
     it('matches snapshot', () => {
       const comp = shallow(<SearchResult status='IDLE' />)
 
-      expect(comp).toMatchSnapshot()
+      expect(toJson(comp)).toMatchSnapshot()
     })
   })
 
@@ -16,7 +16,7 @@ describe('SearchResult component', () => {
     it('matches snapshot', () => {
       const comp = shallow(<SearchResult status='SUCCESS' />)
 
-      expect(comp).toMatchSnapshot()
+      expect(toJson(comp)).toMatchSnapshot()
     })
   })
 
@@ -28,7 +28,7 @@ describe('SearchResult component', () => {
         </SearchResult>
       )
 
-      expect(comp).toMatchSnapshot()
+      expect(toJson(comp)).toMatchSnapshot()
     })
   })
 })
