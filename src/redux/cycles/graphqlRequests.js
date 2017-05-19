@@ -12,11 +12,11 @@ export const findCodepointQuery = `query findCodepoint($value: CodepointValue!) 
   }
 }`
 
-
+export const codepointSearchRequestCategory = 'codepoint-search'
 export function codepointSearchRequest(codepoint) {
   return {
     url: 'http://localhost:8080/graphql',
-    category: 'codepoint-search',
+    category: codepointSearchRequestCategory,
     method: 'POST',
     send: {
       query: findCodepointQuery,
