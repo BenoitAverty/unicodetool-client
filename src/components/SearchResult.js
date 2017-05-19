@@ -5,8 +5,14 @@ const idleSearchResult = always(null)
 
 // When a search has happened but there is no result, symply display a message.
 const emptySearchResult = always(
-  <p class='searchResult emptySearchResult'>
+  <p className='searchResult emptySearchResult'>
     Your search didn't get any result.
+    <style jsx>{`
+      p {
+        text-align: center;
+        font-size: 1.1rem;
+      }
+    `}</style>
   </p>
 )
 

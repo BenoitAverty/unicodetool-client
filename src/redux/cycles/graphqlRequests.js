@@ -2,6 +2,9 @@ export const findCodepointQuery = `query findCodepoint($value: CodepointValue!) 
   codepoint(value: $value) {
     value
     name
+    ... on Character {
+      character
+    }
     properties {
       block
       generalCategory
