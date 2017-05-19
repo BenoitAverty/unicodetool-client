@@ -17,7 +17,7 @@ const searchResult = handleAction(
 )
 const status = handleActions({
   [searchStarted]: always('FETCHING'),
-  [searchResultReceived]: always('IDLE')
+  [searchResultReceived]: always('SUCCESS')
 }, 'IDLE')
 
 export default combineReducers({ currentSearch, searchResult, status })

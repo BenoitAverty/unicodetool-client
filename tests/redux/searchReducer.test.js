@@ -45,11 +45,11 @@ describe('Search Reducer', () => {
     expect(actual.status).toBe('FETCHING')
   })
 
-  it('Has the IDLE status after the searchResultReceived action', () => {
+  it('Has the SUCCESS status after the searchResultReceived action', () => {
     const action = searchResultReceived({ data: { codepoint: {} } })
     const actual = search({ status: 'FETCHING' }, action)
 
-    expect(actual.status).toBe('IDLE')
+    expect(actual.status).toBe('SUCCESS')
   })
 
   it('Has the received codepoints in its searchResult attribute after a searchResultReceived action', () => {

@@ -1,13 +1,22 @@
 import withRedux from 'next-redux-wrapper'
 import { Jumbotron } from 'reactstrap'
 import Link from 'next/link'
+import { pipe, defaultTo, map } from 'ramda'
 
 import makeStore from '../redux/store'
 import { changeSearch } from '../redux/actions'
 
 import Layout from '../components/Layout'
 import UnicodeSearchField from '../components/UnicodeSearchField'
+import SearchResult from '../components/SearchResult'
+import CodepointSummary from '../components/CodepointSummary'
 
+const buildCodepointSummaries = pipe(
+  defaultTo([]),
+  map(codepoint => (
+    <CodepointSummary codepoint={codepoint} key={codepoint.value} />
+  ))
+)
 const Index = props => (
   <Layout>
     <Jumbotron>
@@ -15,7 +24,7 @@ const Index = props => (
         value={props.currentSearch}
         onChange={props.handleSearchChange}
       />
-      <p>
+      <p className='examples'>
         Examples: "
         <a
           className='suggestionLink'
@@ -45,6 +54,9 @@ const Index = props => (
         <Link href='/help'><a>More help and examples...</a></Link>
       </p>
     </Jumbotron>
+    <SearchResult status={props.searchStatus}>
+      {buildCodepointSummaries(props.searchResult)}
+    </SearchResult>
     <style jsx>{`
       p {
         text-align: center;
@@ -57,7 +69,11 @@ const Index = props => (
 export const withoutRedux = Index
 
 // Connect to the store
-const mapStateToProps = state => ({ currentSearch: state.search.currentSearch })
+const mapStateToProps = state => ({
+  currentSearch: state.search.currentSearch,
+  searchResult: state.search.searchResult,
+  searchStatus: state.search.status
+})
 const mapDispatchToProps = dispatch => ({
   handleSearchChange: s => dispatch(changeSearch(s))
 })

@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Index page matches snapshot 1`] = `
+exports[`Index page With a codepoint search result (1 codepoint result) matches snapshot 1`] = `
 <Layout>
   <Jumbotron
     tag="div"
   >
     <UnicodeSearchField
-      onChange={[Function]}
-      value="current search"
+      value="U+0041"
     />
     <p
+      className="examples"
       data-jsx={475681380}
     >
       Examples: "
@@ -52,6 +52,85 @@ exports[`Index page matches snapshot 1`] = `
       </Link>
     </p>
   </Jumbotron>
+  <SearchResult
+    status="SUCCESS"
+  >
+    <CodepointSummary
+      codepoint={
+        Object {
+          "name": "LATIN CAPITAL LETTER A",
+          "properties": Object {
+            "block": "ASCII",
+            "generalCategory": "Lu",
+          },
+          "value": "U+0041",
+        }
+      }
+    />
+  </SearchResult>
+  <_class
+    css="p[data-jsx=\\"475681380\\"] {text-align: center;}"
+    styleId={475681380}
+  />
+</Layout>
+`;
+
+exports[`Index page Without search results matches snapshot 1`] = `
+<Layout>
+  <Jumbotron
+    tag="div"
+  >
+    <UnicodeSearchField
+      onChange={[Function]}
+      value="current search"
+    />
+    <p
+      className="examples"
+      data-jsx={475681380}
+    >
+      Examples: "
+      <a
+        className="suggestionLink"
+        data-jsx={475681380}
+        href="#"
+        onClick={[Function]}
+      >
+        U+0041
+      </a>
+      ", "
+      <a
+        className="suggestionLink"
+        data-jsx={475681380}
+        href="#"
+        onClick={[Function]}
+      >
+        GHOST
+      </a>
+      ", "
+      <a
+        className="suggestionLink"
+        data-jsx={475681380}
+        href="#"
+        onClick={[Function]}
+      >
+        à
+      </a>
+      ".
+       
+      <Link
+        href="/help"
+      >
+        <a
+          data-jsx={475681380}
+        >
+          More help and examples...
+        </a>
+      </Link>
+    </p>
+  </Jumbotron>
+  <SearchResult
+    status="IDLE"
+  />
   <_class
     css="p[data-jsx=\\"475681380\\"] {text-align: center;}"
     styleId={475681380}
