@@ -60,4 +60,13 @@ describe('Search Reducer', () => {
 
     expect(actual.searchResult).toEqual([{ value: '0041' }])
   })
+
+  it('Clears the searchResult attribute when receiving a null codepoint', () => {
+    const action = searchResultReceived({
+      data: { codepoint: null }
+    })
+    const actual = search({ searchResult: [{ value: '0041' }] }, action)
+
+    expect(actual.searchResult).toEqual([])
+  })
 })
