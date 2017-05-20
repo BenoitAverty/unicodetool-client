@@ -15,7 +15,7 @@ export const findCodepointQuery = `query findCodepoint($value: CodepointValue!) 
 export const codepointSearchRequestCategory = 'codepoint-search'
 export function codepointSearchRequest(codepoint) {
   return {
-    url: 'http://localhost:8080/graphql',
+    url: 'https://unicodetool-api.now.sh/graphql',
     category: codepointSearchRequestCategory,
     method: 'POST',
     send: {
