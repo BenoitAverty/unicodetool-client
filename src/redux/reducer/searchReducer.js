@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import { handleAction, handleActions } from 'redux-actions'
-import { always, reject, isNil } from 'ramda'
+import { always, reject, isNil, prop } from 'ramda'
 
 import { changeSearch, searchStarted, searchResultReceived } from '../actions'
+
+// Reducers
 
 const currentSearch = handleAction(
   changeSearch,
@@ -21,3 +23,8 @@ const status = handleActions({
 }, 'IDLE')
 
 export default combineReducers({ currentSearch, searchResult, status })
+
+// Selectors
+export const getCurrentSearch = prop('currentSearch')
+export const getSearchResult = prop('searchResult')
+export const getSearchStatus = prop('status')

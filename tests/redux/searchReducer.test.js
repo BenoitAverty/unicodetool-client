@@ -5,7 +5,11 @@ import {
 } from '../../src/redux/actions'
 
 // Reducer under test
-import search from '../../src/redux/reducer/searchReducer'
+import search, {
+  getCurrentSearch,
+  getSearchResult,
+  getSearchStatus
+} from '../../src/redux/reducer/searchReducer'
 
 describe('Search Reducer', () => {
   describe('Initial state', () => {
@@ -13,21 +17,21 @@ describe('Search Reducer', () => {
       const initialState = search(undefined, { type: '@@INIT' })
 
       expect(initialState).toBeDefined()
-      expect(initialState.currentSearch).toBe('')
+      expect(getCurrentSearch(initialState)).toBe('')
     })
 
     it('Has an empty searchResult attribute', () => {
       const initialState = search(undefined, { type: '@@INIT' })
 
       expect(initialState).toBeDefined()
-      expect(initialState.searchResult).toEqual([])
+      expect(getSearchResult(initialState)).toEqual([])
     })
 
     it('Has the IDLE status', () => {
       const initialState = search(undefined, { type: '@@INIT' })
 
       expect(initialState).toBeDefined()
-      expect(initialState.status).toBe('IDLE')
+      expect(getSearchStatus(initialState)).toBe('IDLE')
     })
   })
 
@@ -35,21 +39,21 @@ describe('Search Reducer', () => {
     const action = changeSearch('New value')
     const actual = search({ currentSearch: '' }, action)
 
-    expect(actual.currentSearch).toBe('New value')
+    expect(getCurrentSearch(actual)).toBe('New value')
   })
 
   it('Has the FETCHING status after the searchStarted action', () => {
     const action = searchStarted()
     const actual = search({ status: 'IDLE' }, action)
 
-    expect(actual.status).toBe('FETCHING')
+    expect(getSearchStatus(actual)).toBe('FETCHING')
   })
 
   it('Has the SUCCESS status after the searchResultReceived action', () => {
     const action = searchResultReceived({ data: { codepoint: {} } })
     const actual = search({ status: 'FETCHING' }, action)
 
-    expect(actual.status).toBe('SUCCESS')
+    expect(getSearchStatus(actual)).toBe('SUCCESS')
   })
 
   it('Has the received codepoints in its searchResult attribute after a searchResultReceived action', () => {
@@ -58,7 +62,7 @@ describe('Search Reducer', () => {
     })
     const actual = search({ searchResult: [] }, action)
 
-    expect(actual.searchResult).toEqual([{ value: '0041' }])
+    expect(getSearchResult(actual)).toEqual([{ value: '0041' }])
   })
 
   it('Clears the searchResult attribute when receiving a null codepoint', () => {
@@ -67,6 +71,6 @@ describe('Search Reducer', () => {
     })
     const actual = search({ searchResult: [{ value: '0041' }] }, action)
 
-    expect(actual.searchResult).toEqual([])
+    expect(getSearchResult(actual)).toEqual([])
   })
 })
