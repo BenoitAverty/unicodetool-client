@@ -46,7 +46,7 @@ describe('Search Cycles', () => {
         httpSink,
         Time.diagram('----a--', {
           a: {
-            url: 'http://localhost:8080/graphql',
+            url: 'https://unicodetool-api.now.sh/graphql',
             category: 'codepoint-search',
             method: 'POST',
             send: {
@@ -81,7 +81,7 @@ describe('Search Cycles', () => {
         httpSink,
         Time.diagram('---------a--', {
           a: {
-            url: 'http://localhost:8080/graphql',
+            url: 'https://unicodetool-api.now.sh/graphql',
             category: 'codepoint-search',
             method: 'POST',
             send: {
@@ -113,7 +113,7 @@ describe('Search Cycles', () => {
         httpSink,
         Time.diagram('----a------', {
           a: {
-            url: 'http://localhost:8080/graphql',
+            url: 'https://unicodetool-api.now.sh/graphql',
             category: 'codepoint-search',
             method: 'POST',
             send: {
