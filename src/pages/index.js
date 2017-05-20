@@ -10,7 +10,7 @@ import {
   getCurrentSearch,
   getSearchResult,
   getSearchStatus
-} from '../redux/reducer/searchReducer'
+} from '../redux/reducer'
 
 import Layout from '../components/Layout'
 import UnicodeSearchField from '../components/UnicodeSearchField'
@@ -90,9 +90,9 @@ export const withoutRedux = Index
 
 // Connect to the store
 const mapStateToProps = state => ({
-  currentSearch: getCurrentSearch(state.search),
-  searchResult: getSearchResult(state.search),
-  searchStatus: getSearchStatus(state.search)
+  currentSearch: getCurrentSearch(state),
+  searchResult: getSearchResult(state),
+  searchStatus: getSearchStatus(state)
 })
 const mapDispatchToProps = dispatch => ({
   handleSearchChange: s => dispatch(changeSearch(s))
