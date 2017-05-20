@@ -6,6 +6,11 @@ import Spinner from 'react-md-spinner'
 
 import makeStore from '../redux/store'
 import { changeSearch } from '../redux/actions'
+import {
+  getCurrentSearch,
+  getSearchResult,
+  getSearchStatus
+} from '../redux/reducer/searchReducer'
 
 import Layout from '../components/Layout'
 import UnicodeSearchField from '../components/UnicodeSearchField'
@@ -85,9 +90,9 @@ export const withoutRedux = Index
 
 // Connect to the store
 const mapStateToProps = state => ({
-  currentSearch: state.search.currentSearch,
-  searchResult: state.search.searchResult,
-  searchStatus: state.search.status
+  currentSearch: getCurrentSearch(state.search),
+  searchResult: getSearchResult(state.search),
+  searchStatus: getSearchStatus(state.search)
 })
 const mapDispatchToProps = dispatch => ({
   handleSearchChange: s => dispatch(changeSearch(s))
