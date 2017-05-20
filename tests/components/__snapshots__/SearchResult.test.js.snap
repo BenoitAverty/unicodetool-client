@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchResult component Before any search happened matches snapshot 1`] = `null`;
+
+exports[`SearchResult component When a search returned a codepoint matches snapshot 1`] = `
+<div
+  className="searchResult"
+>
+  <p>
+    Dummy content
+  </p>
+</div>
+`;
+
+exports[`SearchResult component When a search returned nothing matches snapshot 1`] = `
+<div
+  className="searchResult"
+/>
+`;

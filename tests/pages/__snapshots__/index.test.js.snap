@@ -1,0 +1,214 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Index page While fetching Matches snapshot 1`] = `
+<Layout>
+  <Jumbotron
+    tag="div"
+  >
+    <UnicodeSearchField
+      value="U+0041"
+    />
+    <p
+      className="examples"
+      data-jsx={475681380}
+    >
+      Examples: "
+      <a
+        className="suggestionLink"
+        data-jsx={475681380}
+        href="#"
+        onClick={[Function]}
+      >
+        U+0041
+      </a>
+      ", "
+      <a
+        className="suggestionLink"
+        data-jsx={475681380}
+        href="#"
+        onClick={[Function]}
+      >
+        GHOST
+      </a>
+      ", "
+      <a
+        className="suggestionLink"
+        data-jsx={475681380}
+        href="#"
+        onClick={[Function]}
+      >
+        à
+      </a>
+      ".
+       
+      <Link
+        href="/help"
+      >
+        <a
+          data-jsx={475681380}
+        >
+          More help and examples...
+        </a>
+      </Link>
+    </p>
+  </Jumbotron>
+  <div
+    data-jsx={4287716600}
+  >
+    <MDSpinner
+      color1="rgb(66, 165, 245)"
+      color2="rgb(239, 83, 80)"
+      color3="rgb(253, 216, 53)"
+      color4="rgb(76, 175, 80)"
+      duration={1333}
+      size={28}
+    />
+    <_class
+      css="div[data-jsx=\\"4287716600\\"] {display:-webkit-flex; display:flex;justify-content: center;align-items: center;}"
+      styleId={4287716600}
+    />
+  </div>
+  <_class
+    css="p[data-jsx=\\"475681380\\"] {text-align: center;}"
+    styleId={475681380}
+  />
+</Layout>
+`;
+
+exports[`Index page With a codepoint search result (1 codepoint result) matches snapshot 1`] = `
+<Layout>
+  <Jumbotron
+    tag="div"
+  >
+    <UnicodeSearchField
+      value="U+0041"
+    />
+    <p
+      className="examples"
+      data-jsx={475681380}
+    >
+      Examples: "
+      <a
+        className="suggestionLink"
+        data-jsx={475681380}
+        href="#"
+        onClick={[Function]}
+      >
+        U+0041
+      </a>
+      ", "
+      <a
+        className="suggestionLink"
+        data-jsx={475681380}
+        href="#"
+        onClick={[Function]}
+      >
+        GHOST
+      </a>
+      ", "
+      <a
+        className="suggestionLink"
+        data-jsx={475681380}
+        href="#"
+        onClick={[Function]}
+      >
+        à
+      </a>
+      ".
+       
+      <Link
+        href="/help"
+      >
+        <a
+          data-jsx={475681380}
+        >
+          More help and examples...
+        </a>
+      </Link>
+    </p>
+  </Jumbotron>
+  <SearchResult
+    status="SUCCESS"
+  >
+    <CodepointSummary
+      codepoint={
+        Object {
+          "name": "LATIN CAPITAL LETTER A",
+          "properties": Object {
+            "block": "ASCII",
+            "generalCategory": "Lu",
+          },
+          "value": "U+0041",
+        }
+      }
+    />
+  </SearchResult>
+  <_class
+    css="p[data-jsx=\\"475681380\\"] {text-align: center;}"
+    styleId={475681380}
+  />
+</Layout>
+`;
+
+exports[`Index page Without search results matches snapshot 1`] = `
+<Layout>
+  <Jumbotron
+    tag="div"
+  >
+    <UnicodeSearchField
+      onChange={[Function]}
+      value="current search"
+    />
+    <p
+      className="examples"
+      data-jsx={475681380}
+    >
+      Examples: "
+      <a
+        className="suggestionLink"
+        data-jsx={475681380}
+        href="#"
+        onClick={[Function]}
+      >
+        U+0041
+      </a>
+      ", "
+      <a
+        className="suggestionLink"
+        data-jsx={475681380}
+        href="#"
+        onClick={[Function]}
+      >
+        GHOST
+      </a>
+      ", "
+      <a
+        className="suggestionLink"
+        data-jsx={475681380}
+        href="#"
+        onClick={[Function]}
+      >
+        à
+      </a>
+      ".
+       
+      <Link
+        href="/help"
+      >
+        <a
+          data-jsx={475681380}
+        >
+          More help and examples...
+        </a>
+      </Link>
+    </p>
+  </Jumbotron>
+  <SearchResult
+    status="IDLE"
+  />
+  <_class
+    css="p[data-jsx=\\"475681380\\"] {text-align: center;}"
+    styleId={475681380}
+  />
+</Layout>
+`;

@@ -1,0 +1,23 @@
+import { combineReducers } from 'redux'
+import { handleAction, handleActions } from 'redux-actions'
+import { always, reject, isNil } from 'ramda'
+
+import { changeSearch, searchStarted, searchResultReceived } from '../actions'
+
+const currentSearch = handleAction(
+  changeSearch,
+  (state, action) => action.payload,
+  ''
+)
+
+const searchResult = handleAction(
+  searchResultReceived,
+  (state, action) => reject(isNil, [action.payload.data.codepoint]),
+  []
+)
+const status = handleActions({
+  [searchStarted]: always('FETCHING'),
+  [searchResultReceived]: always('SUCCESS')
+}, 'IDLE')
+
+export default combineReducers({ currentSearch, searchResult, status })
