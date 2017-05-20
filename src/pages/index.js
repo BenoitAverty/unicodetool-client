@@ -2,6 +2,7 @@ import withRedux from 'next-redux-wrapper'
 import { Jumbotron } from 'reactstrap'
 import Link from 'next/link'
 import { pipe, defaultTo, map } from 'ramda'
+import Spinner from 'react-md-spinner'
 
 import makeStore from '../redux/store'
 import { changeSearch } from '../redux/actions'
@@ -11,6 +12,18 @@ import UnicodeSearchField from '../components/UnicodeSearchField'
 import SearchResult from '../components/SearchResult'
 import CodepointSummary from '../components/CodepointSummary'
 
+const spinner = (
+  <div>
+    <Spinner />
+    <style jsx>{`
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    `}</style>
+  </div>
+)
 const buildCodepointSummaries = pipe(
   defaultTo([]),
   map(codepoint => (
@@ -54,9 +67,11 @@ const Index = props => (
         <Link href='/help'><a>More help and examples...</a></Link>
       </p>
     </Jumbotron>
-    <SearchResult status={props.searchStatus}>
-      {buildCodepointSummaries(props.searchResult)}
-    </SearchResult>
+    {props.searchStatus === 'FETCHING'
+      ? spinner
+      : <SearchResult status={props.searchStatus}>
+          {buildCodepointSummaries(props.searchResult)}
+        </SearchResult>}
     <style jsx>{`
       p {
         text-align: center;

@@ -50,6 +50,19 @@ describe('Index page', () => {
     })
   })
 
+  describe('While fetching', () => {
+    it('Matches snapshot', () => {
+      const page = shallow(
+        <Index
+          currentSearch='U+0041'
+          searchResult={[]}
+          searchStatus='FETCHING'
+        />
+      )
+      expect(toJson(page)).toMatchSnapshot()
+    })
+  })
+
   describe('With a codepoint search result (1 codepoint result)', () => {
     it('matches snapshot', () => {
       const searchResult = [
