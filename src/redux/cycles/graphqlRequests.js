@@ -11,7 +11,6 @@ export const codepointLookupQuery = `query findCodepoint($value: CodepointValue!
     }
   }
 }`
-
 export const codepointLookupRequestCategory = 'codepoint-lookup'
 export function codepointLookupRequest(codepoint) {
   return {
@@ -22,6 +21,34 @@ export function codepointLookupRequest(codepoint) {
       query: codepointLookupQuery,
       variables: JSON.stringify({
         value: codepoint
+      })
+    }
+  }
+}
+
+export const nameSearchQuery = `query nameSearch($name: String!) {
+  codepointSearch(name: $name) {
+    value
+    name
+    ... on Character {
+      character
+    }
+    properties {
+      block
+      generalCategory
+    }
+  }
+}`
+export const nameSearchRequestCategory = 'name-search'
+export function nameSearchRequest(name) {
+  return {
+    url: 'https://unicodetool-api.now.sh/graphql',
+    category: nameSearchRequestCategory,
+    method: 'POST',
+    send: {
+      query: nameSearchQuery,
+      variables: JSON.stringify({
+        name
       })
     }
   }
