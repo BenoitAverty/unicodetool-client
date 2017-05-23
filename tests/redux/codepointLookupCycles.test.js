@@ -62,13 +62,14 @@ describe('Codepoint Lookup Cycles', () => {
 
   it('Waits for the user to finish typing before sending the request', done => {
     const Time = mockTimeSource({ interval: 125 })
-    const actionSource = Time.diagram('--abcdef--', {
+    const actionSource = Time.diagram('--abcdefg--', {
       a: changeSearch('U'),
       b: changeSearch('U+'),
-      c: changeSearch('U+0'),
-      d: changeSearch('U+00'),
-      e: changeSearch('U+004'),
-      f: changeSearch('U+0042')
+      c: changeSearch('U+1'),
+      d: changeSearch('U+10'),
+      e: changeSearch('U+104'),
+      f: changeSearch('U+1042'),
+      g: changeSearch('U+10422')
     })
     const { Http: httpSink } = codepointLookup({
       Action: actionSource,
@@ -78,7 +79,7 @@ describe('Codepoint Lookup Cycles', () => {
 
     Time.assertEqual(
       httpSink,
-      Time.diagram('---------a--', {
+      Time.diagram('----------a--', {
         a: {
           url: 'https://unicodetool-api.now.sh/graphql',
           category: 'codepoint-lookup',
@@ -86,7 +87,7 @@ describe('Codepoint Lookup Cycles', () => {
           send: {
             query: codepointLookupQuery,
             variables: JSON.stringify({
-              value: 'U+0042'
+              value: 'U+10422'
             })
           }
         }
@@ -98,9 +99,9 @@ describe('Codepoint Lookup Cycles', () => {
   it("Doesn't send the same query twice", done => {
     const Time = mockTimeSource({ interval: 125 })
     const actionSource = Time.diagram('--a---bc--', {
-      a: changeSearch('U+0041'),
-      b: changeSearch('U+004'),
-      c: changeSearch('U+0041')
+      a: changeSearch('U+10411'),
+      b: changeSearch('U+1041'),
+      c: changeSearch('U+10411')
     })
     const { Http: httpSink } = codepointLookup({
       Action: actionSource,
@@ -118,12 +119,27 @@ describe('Codepoint Lookup Cycles', () => {
           send: {
             query: codepointLookupQuery,
             variables: JSON.stringify({
-              value: 'U+0041'
+              value: 'U+10411'
             })
           }
         }
       })
     )
+    Time.run(done)
+  })
+
+  it("Doesn't send a codepoint lookup when the search doesn't have the right format", done => {
+    const Time = mockTimeSource({ interval: 125 })
+    const actionSource = Time.diagram('--a--', {
+      a: changeSearch('PLOUF')
+    })
+    const { Http: httpSink } = codepointLookup({
+      Action: actionSource,
+      Http: mockHttpSource(Observable.never()),
+      Time
+    })
+
+    Time.assertEqual(httpSink, Time.diagram('-----'))
     Time.run(done)
   })
 
