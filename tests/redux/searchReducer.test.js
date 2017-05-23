@@ -1,6 +1,6 @@
 import {
   changeSearch,
-  searchStarted,
+  codepointLookupStarted,
   searchResultReceived
 } from '../../src/redux/actions'
 
@@ -42,8 +42,8 @@ describe('Search Reducer', () => {
     expect(getCurrentSearch(actual)).toBe('New value')
   })
 
-  it('Has the FETCHING status after the searchStarted action', () => {
-    const action = searchStarted()
+  it('Has the FETCHING status after the codepointLookupStarted action', () => {
+    const action = codepointLookupStarted()
     const actual = search({ status: 'IDLE' }, action)
 
     expect(getSearchStatus(actual)).toBe('FETCHING')

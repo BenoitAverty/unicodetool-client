@@ -1,8 +1,8 @@
-import search from './searchCycles'
+import search from './codepointLookupCycles'
 
 export default function cycles(sources) {
 
-  const searchSinks = search(sources)
+  const codepointLookupSinks = codepointLookup(sources)
 
   return searchSinks
 }

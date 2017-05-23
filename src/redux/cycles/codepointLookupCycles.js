@@ -1,13 +1,13 @@
 import { Observable } from 'rxjs'
 import { ifElse, prop, propEq, isEmpty, not, isNil, pipe, trim, F } from 'ramda'
 
-import { changeSearch, searchStarted, searchResultReceived } from '../actions'
-import { codepointSearchRequest, codepointSearchRequestCategory } from './graphqlRequests'
+import { changeSearch, codepointLookupStarted, searchResultReceived } from '../actions'
+import { codepointLookupRequest, codepointLookupRequestCategory } from './graphqlRequests'
 
 // Return true if a string is neither undefined nor empty
 const isNotBlank = ifElse(isNil, F, pipe(trim, isEmpty, not))
 
-export default function search({ Action, Http, Time }) {
+export default function codepointLookup({ Action, Http, Time }) {
 
   const codepointRequest$ = Action
     .filter(propEq('type', changeSearch.toString()))
@@ -15,18 +15,18 @@ export default function search({ Action, Http, Time }) {
     .map(prop('payload'))
     .distinctUntilChanged()
     .filter(isNotBlank)
-    .map(codepointSearchRequest)
+    .map(codepointLookupRequest)
 
-  const searchStartedAction$ = codepointRequest$.mapTo(searchStarted())
+  const codepointLookupStartedAction$ = codepointRequest$.mapTo(codepointLookupStarted())
 
   const searchResultAction$ = Http
-    .select(codepointSearchRequestCategory)
+    .select(codepointLookupRequestCategory)
     .switch()
     .map(prop('body'))
     .map(searchResultReceived)
 
   return {
-    Action: Observable.merge(searchStartedAction$, searchResultAction$),
+    Action: Observable.merge(codepointLookupStartedAction$, searchResultAction$),
     Http: codepointRequest$
   }
 }

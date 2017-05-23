@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import { handleAction, handleActions } from 'redux-actions'
 import { always, reject, isNil, prop } from 'ramda'
 
-import { changeSearch, searchStarted, searchResultReceived } from '../actions'
+import { changeSearch, codepointLookupStarted, searchResultReceived } from '../actions'
 
 // Reducers
 
@@ -18,7 +18,7 @@ const searchResult = handleAction(
   []
 )
 const status = handleActions({
-  [searchStarted]: always('FETCHING'),
+  [codepointLookupStarted]: always('FETCHING'),
   [searchResultReceived]: always('SUCCESS')
 }, 'IDLE')
 
