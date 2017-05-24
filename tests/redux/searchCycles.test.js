@@ -20,8 +20,9 @@ import { mockHttpSource } from './utils'
 describe('Search cycles', () => {
   it("doesn't emit any actions/requests when the search is cleared", done => {
     const Time = mockTimeSource({ interval: 125 })
-    const actionSource = Time.diagram('-a-', {
-      a: changeSearch('')
+    const actionSource = Time.diagram('-a--b-', {
+      a: changeSearch('test'),
+      b: changeSearch('')
     })
 
     const { Action: actionSink, Http: httpSink } = searchCycles({
@@ -30,8 +31,28 @@ describe('Search cycles', () => {
       Time
     })
 
-    Time.assertEqual(actionSink, Time.diagram('-'))
-    Time.assertEqual(httpSink, Time.diagram('-'))
+    Time.assertEqual(
+      httpSink,
+      Time.diagram('---a----', {
+        a: {
+          url: 'https://unicodetool-api.now.sh/graphql',
+          category: 'name-search',
+          method: 'POST',
+          send: {
+            query: nameSearchQuery,
+            variables: JSON.stringify({
+              name: 'test'
+            })
+          }
+        }
+      })
+    )
+    Time.assertEqual(
+      actionSink,
+      Time.diagram('---a----', {
+        a: nameSearchStarted()
+      })
+    )
     Time.run(done)
   })
 
