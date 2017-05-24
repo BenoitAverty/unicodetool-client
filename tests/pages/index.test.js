@@ -42,7 +42,7 @@ describe('Index page', () => {
       )
 
       const links = page.find('a.suggestionLink')
-      const expectedCalls = [['U+0041'], ['GHOST'], ['à']]
+      const expectedCalls = [['U+0041'], ['HEART'], ['à']]
       links.forEach(l => {
         l.simulate('click')
       })

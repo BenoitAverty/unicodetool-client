@@ -28,7 +28,7 @@ exports[`Index page While fetching Matches snapshot 1`] = `
         href="#"
         onClick={[Function]}
       >
-        GHOST
+        HEART
       </a>
       ", "
       <a
@@ -103,7 +103,7 @@ exports[`Index page With a codepoint search result (1 codepoint result) matches 
         href="#"
         onClick={[Function]}
       >
-        GHOST
+        HEART
       </a>
       ", "
       <a
@@ -179,7 +179,7 @@ exports[`Index page Without search results matches snapshot 1`] = `
         href="#"
         onClick={[Function]}
       >
-        GHOST
+        HEART
       </a>
       ", "
       <a
