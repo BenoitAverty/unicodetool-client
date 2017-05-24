@@ -80,7 +80,7 @@ describe('Search By Name Cycles', () => {
       Time.run(done)
     })
 
-    it('Doesn\'t send a query/action if the search is a prefixed codepoint value', done => {
+    it("Doesn't send a query/action if the search is a prefixed codepoint value", done => {
       const Time = mockTimeSource({ interval: 125 })
       const actionSource = Time.diagram('--a--', {
         a: changeSearch('U+0041')
@@ -91,14 +91,8 @@ describe('Search By Name Cycles', () => {
         Time
       })
 
-      Time.assertEqual(
-        httpSink,
-        Time.diagram('-')
-      )
-      Time.assertEqual(
-        actionSink,
-        Time.diagram('-')
-      )
+      Time.assertEqual(httpSink, Time.diagram('-'))
+      Time.assertEqual(actionSink, Time.diagram('-'))
       Time.run(done)
     })
 
@@ -144,18 +138,18 @@ describe('Search By Name Cycles', () => {
         data: {
           codepointSearch: [
             {
-              "value": "U+00C5",
-              "decimalValue": 197,
-              "name": "LATIN CAPITAL LETTER A WITH RING ABOVE",
-              "__typename": "Character",
-              "character": "Å"
+              value: 'U+00C5',
+              decimalValue: 197,
+              name: 'LATIN CAPITAL LETTER A WITH RING ABOVE',
+              __typename: 'Character',
+              character: 'Å'
             },
             {
-              "value": "U+01FA",
-              "decimalValue": 506,
-              "name": "LATIN CAPITAL LETTER A WITH RING ABOVE AND ACUTE",
-              "__typename": "Character",
-              "character": "Ǻ"
+              value: 'U+01FA',
+              decimalValue: 506,
+              name: 'LATIN CAPITAL LETTER A WITH RING ABOVE AND ACUTE',
+              __typename: 'Character',
+              character: 'Ǻ'
             }
           ]
         }
