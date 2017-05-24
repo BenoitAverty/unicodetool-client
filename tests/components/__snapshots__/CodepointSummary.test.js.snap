@@ -1,5 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`CodepointSummary component With a combining mark codepoint matches snapshot 1`] = `
+<div
+  className="CodepointSummary"
+  data-jsx={769656655}
+>
+  <p
+    className="displayedCharacter"
+    data-jsx={769656655}
+  >
+    <strong
+      data-jsx={769656655}
+    >
+      ◌undefined
+    </strong>
+  </p>
+  <div
+    className="characterProperties"
+    data-jsx={769656655}
+  >
+    <h1
+      data-jsx={769656655}
+    >
+      U+0307
+       
+      COMBINING DOT ABOVE
+    </h1>
+    <ul
+      data-jsx={769656655}
+    >
+      <li
+        data-jsx={769656655}
+      >
+        Block: 
+        Diacriticals
+      </li>
+      <li
+        data-jsx={769656655}
+      >
+        General Category: 
+        Mn
+      </li>
+    </ul>
+  </div>
+  <_class
+    css=".CodepointSummary[data-jsx=\\"769656655\\"] {display:-webkit-flex; display:flex;align-items: center;background: #0275d8;border-radius: 0.5rem;color: white;padding: 0.5rem;}.displayedCharacter[data-jsx=\\"769656655\\"] {-webkit-flex: 0 1 auto;-moz-flex: 0 1 auto;flex: 0 1 auto;width: 80px;height: 80px;margin: 0;color: black;font-size: 60px;background: #eceeef;border-radius: 0.5rem;display:-webkit-flex; display:flex;justify-content: center;align-items: center;}.characterProperties[data-jsx=\\"769656655\\"] {padding-left: 1rem;}.characterProperties[data-jsx=\\"769656655\\"] h1[data-jsx=\\"769656655\\"] {font-size: 1.1rem;font-weight: bold;}.characterProperties[data-jsx=\\"769656655\\"] ul[data-jsx=\\"769656655\\"] {list-style-type: none;font-size: 0.9rem;padding-left: 15px;margin: 0;}"
+    styleId={769656655}
+  />
+</div>
+`;
+
 exports[`CodepointSummary component With a complete codepoint matches snapshot 1`] = `
 <div
   className="CodepointSummary"
