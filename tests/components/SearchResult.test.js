@@ -14,7 +14,7 @@ describe('SearchResult component', () => {
 
   describe('When a search returned nothing', () => {
     it('matches snapshot', () => {
-      const comp = shallow(<SearchResult status='SUCCESS' />)
+      const comp = shallow(<SearchResult status='SUCCESS'>{[]}</SearchResult>)
 
       expect(toJson(comp)).toMatchSnapshot()
     })
@@ -24,6 +24,19 @@ describe('SearchResult component', () => {
     it('matches snapshot', () => {
       const comp = shallow(
         <SearchResult status='SUCCESS'>
+          <p>Dummy content</p>
+        </SearchResult>
+      )
+
+      expect(toJson(comp)).toMatchSnapshot()
+    })
+  })
+
+  describe('When a search returned several codepoints', () => {
+    it('matches snapshot', () => {
+      const comp = shallow(
+        <SearchResult status='SUCCESS'>
+          <p>Dummy content</p>
           <p>Dummy content</p>
         </SearchResult>
       )

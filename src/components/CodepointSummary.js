@@ -1,6 +1,19 @@
+import { __, contains } from 'ramda'
+
+const isCombiningGeneralCategory = contains(__, ['Mn', 'Me', 'Mc'])
+const addBaseIfCombining = (c, gc) =>
+  isCombiningGeneralCategory(gc) ? `◌${c}` : c
+
 const CodepointSummary = ({ codepoint }) => (
   <div className='CodepointSummary'>
-    <p className='displayedCharacter'><strong>{codepoint.character}</strong></p>
+    <p className='displayedCharacter'>
+      <strong>
+        {addBaseIfCombining(
+          codepoint.character,
+          codepoint.properties.generalCategory
+        )}
+      </strong>
+    </p>
     <div className='characterProperties'>
       <h1>{codepoint.value} {codepoint.name}</h1>
       <ul>

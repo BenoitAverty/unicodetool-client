@@ -55,9 +55,9 @@ const Index = props => (
         <a
           className='suggestionLink'
           href='#'
-          onClick={e => props.handleSearchChange('GHOST')}
+          onClick={e => props.handleSearchChange('HEART')}
         >
-          GHOST
+          HEART
         </a>
         ", "
         <a
