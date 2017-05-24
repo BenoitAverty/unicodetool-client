@@ -4,7 +4,7 @@ export function mockHttpSource (response$) {
   const httpSource = {
     select: cat =>
       Observable.of(
-        response$.filter(r => !r.request || r.request.category === cat)
+        response$.filter(r => !cat || !r.request || r.request.category === cat)
       )
   }
 
