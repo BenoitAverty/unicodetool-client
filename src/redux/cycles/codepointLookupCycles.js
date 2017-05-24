@@ -1,14 +1,11 @@
 import { Observable } from 'rxjs'
-import { ifElse, prop, propEq, isEmpty, not, isNil, pipe, trim, F, test, and } from 'ramda'
+import { prop, propEq, test } from 'ramda'
 
 import { changeSearch, codepointLookupStarted, searchResultReceived } from '../actions'
 import { codepointLookupRequest, codepointLookupRequestCategory } from './graphqlRequests'
 
-// Return true if a string is neither undefined nor empty
-const isNotBlank = ifElse(isNil, F, pipe(trim, isEmpty, not))
-
 // Return true if a string has the format of a codepoint
-const isCodepoint = and(isNotBlank, test(/^(U\+)?[0-9A-Fa-f]{4,6}/))
+const isCodepoint = test(/^(U\+)?[0-9A-Fa-f]{4,6}/)
 
 export default function codepointLookup({ Action, Http, Time }) {
 
