@@ -13,7 +13,7 @@ import { mockHttpSource } from './utils'
 
 describe('Search By Name Cycles', () => {
   it("doesn't emit any actions/requests when the search is cleared", done => {
-    const Time = mockTimeSource({interval: 125})
+    const Time = mockTimeSource({ interval: 125 })
     const actionSource = Time.diagram('--a--', {
       a: changeSearch('')
     })
@@ -128,7 +128,7 @@ describe('Search By Name Cycles', () => {
       Time.run(done)
     })
 
-    it("Sends the same query twice if there was another, unhandled, search in the meantime.", done => {
+    it('Sends the same query twice if there was another, unhandled, search in the meantime.', done => {
       const Time = mockTimeSource({ interval: 125 })
       const actionSource = Time.diagram('--a--b--a--', {
         a: changeSearch('GHOST'),

@@ -14,7 +14,7 @@ import { mockHttpSource } from './utils'
 // Test suite
 describe('Codepoint Lookup Cycles', () => {
   it("doesn't emit any actions/requests when the search is cleared", done => {
-    const Time = mockTimeSource({interval: 125})
+    const Time = mockTimeSource({ interval: 125 })
     const actionSource = Time.diagram('--a--b--', {
       a: changeSearch('test'),
       b: changeSearch('')
@@ -129,7 +129,7 @@ describe('Codepoint Lookup Cycles', () => {
     Time.run(done)
   })
 
-  it("Sends the same query twice if there was another, unhandled, search in the meantime.", done => {
+  it('Sends the same query twice if there was another, unhandled, search in the meantime.', done => {
     const Time = mockTimeSource({ interval: 125 })
     const actionSource = Time.diagram('--a--b--c--', {
       a: changeSearch('U+10411'),
