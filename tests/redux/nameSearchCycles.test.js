@@ -13,7 +13,7 @@ import { mockHttpSource } from './utils'
 
 describe('Search By Name Cycles', () => {
   it("doesn't emit any actions/requests when the search is cleared", done => {
-    const Time = mockTimeSource()
+    const Time = mockTimeSource({interval: 125})
     const actionSource = Time.diagram('--a--', {
       a: changeSearch('')
     })
@@ -112,6 +112,37 @@ describe('Search By Name Cycles', () => {
       Time.assertEqual(
         httpSink,
         Time.diagram('----a------', {
+          a: {
+            url: 'https://unicodetool-api.now.sh/graphql',
+            category: 'name-search',
+            method: 'POST',
+            send: {
+              query: nameSearchQuery,
+              variables: JSON.stringify({
+                name: 'GHOST'
+              })
+            }
+          }
+        })
+      )
+      Time.run(done)
+    })
+
+    it("Sends the same query twice if there was another, unhandled, search in the meantime.", done => {
+      const Time = mockTimeSource({ interval: 125 })
+      const actionSource = Time.diagram('--a--b--a--', {
+        a: changeSearch('GHOST'),
+        b: changeSearch('U+10411')
+      })
+      const { Http: httpSink } = nameSearch({
+        Action: actionSource,
+        Http: mockHttpSource(Observable.never()),
+        Time
+      })
+
+      Time.assertEqual(
+        httpSink,
+        Time.diagram('----a-----a--', {
           a: {
             url: 'https://unicodetool-api.now.sh/graphql',
             category: 'name-search',

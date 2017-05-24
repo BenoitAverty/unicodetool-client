@@ -2,7 +2,7 @@ import { always, propEq, ifElse, isNil, map } from 'ramda'
 
 // Add a div around each children so they are stylable for flexbox
 const addFlexChildContainer = element => (
-  <div key={element.key}>
+  <div>
     {element}
     <style jsx>{`
       div {

@@ -14,9 +14,10 @@ import { mockHttpSource } from './utils'
 // Test suite
 describe('Codepoint Lookup Cycles', () => {
   it("doesn't emit any actions/requests when the search is cleared", done => {
-    const Time = mockTimeSource()
-    const actionSource = Time.diagram('--a--', {
-      a: changeSearch('')
+    const Time = mockTimeSource({interval: 125})
+    const actionSource = Time.diagram('--a--b--', {
+      a: changeSearch('test'),
+      b: changeSearch('')
     })
 
     const { Action: actionSink, Http: httpSink } = codepointLookup({
@@ -112,6 +113,38 @@ describe('Codepoint Lookup Cycles', () => {
     Time.assertEqual(
       httpSink,
       Time.diagram('----a------', {
+        a: {
+          url: 'https://unicodetool-api.now.sh/graphql',
+          category: 'codepoint-lookup',
+          method: 'POST',
+          send: {
+            query: codepointLookupQuery,
+            variables: JSON.stringify({
+              value: 'U+10411'
+            })
+          }
+        }
+      })
+    )
+    Time.run(done)
+  })
+
+  it("Sends the same query twice if there was another, unhandled, search in the meantime.", done => {
+    const Time = mockTimeSource({ interval: 125 })
+    const actionSource = Time.diagram('--a--b--c--', {
+      a: changeSearch('U+10411'),
+      b: changeSearch('GHOST'),
+      c: changeSearch('U+10411')
+    })
+    const { Http: httpSink } = codepointLookup({
+      Action: actionSource,
+      Http: mockHttpSource(Observable.never()),
+      Time
+    })
+
+    Time.assertEqual(
+      httpSink,
+      Time.diagram('----a-----a--', {
         a: {
           url: 'https://unicodetool-api.now.sh/graphql',
           category: 'codepoint-lookup',
