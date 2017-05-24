@@ -5,15 +5,69 @@ exports[`SearchResult component Before any search happened matches snapshot 1`] 
 exports[`SearchResult component When a search returned a codepoint matches snapshot 1`] = `
 <div
   className="searchResult"
+  data-jsx={714072709}
 >
-  <p>
-    Dummy content
-  </p>
+  <div
+    data-jsx={566834406}
+  >
+    <p>
+      Dummy content
+    </p>
+    <_class
+      css="div[data-jsx=\\"566834406\\"] {padding: 5px;-webkit-flex: 1 1 auto;-moz-flex: 1 1 auto;flex: 1 1 auto;}"
+      styleId={566834406}
+    />
+  </div>
+  <_class
+    css="div[data-jsx=\\"714072709\\"] {display:-webkit-flex; display:flex;justify-content: center;align-items: center;-webkit-flex-flow: row wrap;-moz-flex-flow: row wrap;flex-flow: row wrap;}"
+    styleId={714072709}
+  />
 </div>
 `;
 
 exports[`SearchResult component When a search returned nothing matches snapshot 1`] = `
+<p
+  className="searchResult emptySearchResult"
+  data-jsx={3095625376}
+>
+  Your search didn't get any result.
+  <_class
+    css="p[data-jsx=\\"3095625376\\"] {text-align: center;font-size: 1.1rem;}"
+    styleId={3095625376}
+  />
+</p>
+`;
+
+exports[`SearchResult component When a search returned several codepoints matches snapshot 1`] = `
 <div
   className="searchResult"
-/>
+  data-jsx={714072709}
+>
+  <div
+    data-jsx={566834406}
+  >
+    <p>
+      Dummy content
+    </p>
+    <_class
+      css="div[data-jsx=\\"566834406\\"] {padding: 5px;-webkit-flex: 1 1 auto;-moz-flex: 1 1 auto;flex: 1 1 auto;}"
+      styleId={566834406}
+    />
+  </div>
+  <div
+    data-jsx={566834406}
+  >
+    <p>
+      Dummy content
+    </p>
+    <_class
+      css="div[data-jsx=\\"566834406\\"] {padding: 5px;-webkit-flex: 1 1 auto;-moz-flex: 1 1 auto;flex: 1 1 auto;}"
+      styleId={566834406}
+    />
+  </div>
+  <_class
+    css="div[data-jsx=\\"714072709\\"] {display:-webkit-flex; display:flex;justify-content: center;align-items: center;-webkit-flex-flow: row wrap;-moz-flex-flow: row wrap;flex-flow: row wrap;}"
+    styleId={714072709}
+  />
+</div>
 `;

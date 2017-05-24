@@ -1,4 +1,32 @@
-import { always, propEq, ifElse } from 'ramda'
+import { always, propEq, ifElse, isNil, map } from 'ramda'
+
+// Add a div around each children so they are stylable for flexbox
+const addFlexChildContainer = element => (
+  <div key={element.key}>
+    {element}
+    <style jsx>{`
+      div {
+        padding: 5px;
+        flex: 1 1 auto;
+      }
+    `}</style>
+  </div>
+)
+
+// When there are results, they must be passed as children of the compoenent.
+const nonEmptySearchResult = ({ children }) => (
+  <div className='searchResult'>
+    {React.Children.map(children, addFlexChildContainer)}
+    <style jsx>{`
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row wrap;
+      }
+    `}</style>
+  </div>
+)
 
 // SearchResult is always null before any search has happened
 const idleSearchResult = always(null)
@@ -16,12 +44,6 @@ const emptySearchResult = always(
   </p>
 )
 
-// When there are results, they must be passed as children of the compoenent.
-const nonEmptySearchResult = ({ children }) => (
-  <div className='searchResult'>
-    {children}
-  </div>
-)
 
 // This is the component itself
 const SearchResult = ifElse(
