@@ -44,7 +44,6 @@ const emptySearchResult = always(
   </p>
 )
 
-
 // This is the component itself
 const SearchResult = ifElse(
   propEq('status', 'IDLE'),
