@@ -53,3 +53,44 @@ export function nameSearchRequest(name) {
     }
   }
 }
+
+export const lookupAndSearchQuery = `query lookupAndSearch($name: String!, $value: CodepointValue!) {
+  codepointSearch(name: $name) {
+    value
+    name
+    ... on Character {
+      character
+    }
+    properties {
+      block
+      generalCategory
+    }
+  }
+
+  codepoint(value: $value) {
+    value
+    name
+    ... on Character {
+      character
+    }
+    properties {
+      block
+      generalCategory
+    }
+  }
+}`
+export const lookupAndSearchRequestCategory = 'codepoint-lookup+name-search'
+export function lookupAndSearchRequest(search) {
+  return {
+    url: 'https://unicodetool-api.now.sh/graphql',
+    category: lookupAndSearchRequestCategory,
+    method: 'POST',
+    send: {
+      query: lookupAndSearchQuery,
+      variables: JSON.stringify({
+        name: search,
+        value: search
+      })
+    }
+  }
+}
