@@ -5,8 +5,10 @@ import searchCycles from '../../src/redux/cycles/searchCycles'
 import {
   nameSearchQuery,
   codepointLookupQuery,
+  lookupAndSearchQuery,
   nameSearchRequestCategory,
-  codepointLookupRequestCategory
+  codepointLookupRequestCategory,
+  lookupAndSearchRequestCategory
 } from '../../src/redux/cycles/graphqlRequests'
 import {
   changeSearch,
@@ -142,26 +144,16 @@ describe('Search cycles', () => {
 
       Time.assertEqual(
         httpSink,
-        Time.diagram('----(ab)--', {
+        Time.diagram('----a--', {
           a: {
             url: 'https://unicodetool-api.now.sh/graphql',
-            category: 'codepoint-lookup',
+            category: 'codepoint-lookup+name-search',
             method: 'POST',
             send: {
-              query: codepointLookupQuery,
+              query: lookupAndSearchQuery,
               variables: JSON.stringify({
+                name: '0041',
                 value: '0041'
-              })
-            }
-          },
-          b: {
-            url: 'https://unicodetool-api.now.sh/graphql',
-            category: 'name-search',
-            method: 'POST',
-            send: {
-              query: nameSearchQuery,
-              variables: JSON.stringify({
-                name: '0041'
               })
             }
           }
@@ -170,8 +162,8 @@ describe('Search cycles', () => {
       Time.assertEqual(
         actionSink,
         Time.diagram('----(ab)--', {
-          a: codepointLookupStarted(),
-          b: nameSearchStarted()
+          a: nameSearchStarted(),
+          b: codepointLookupStarted()
         })
       )
       Time.run(done)
@@ -227,26 +219,16 @@ describe('Search cycles', () => {
 
       Time.assertEqual(
         httpSink,
-        Time.diagram('---------(ab)--', {
+        Time.diagram('---------a--', {
           a: {
             url: 'https://unicodetool-api.now.sh/graphql',
-            category: 'codepoint-lookup',
+            category: 'codepoint-lookup+name-search',
             method: 'POST',
             send: {
-              query: codepointLookupQuery,
+              query: lookupAndSearchQuery,
               variables: JSON.stringify({
+                name: '101ABC',
                 value: '101ABC'
-              })
-            }
-          },
-          b: {
-            url: 'https://unicodetool-api.now.sh/graphql',
-            category: 'name-search',
-            method: 'POST',
-            send: {
-              query: nameSearchQuery,
-              variables: JSON.stringify({
-                name: '101ABC'
               })
             }
           }
@@ -255,8 +237,8 @@ describe('Search cycles', () => {
       Time.assertEqual(
         actionSink,
         Time.diagram('---------(ab)--', {
-          a: codepointLookupStarted(),
-          b: nameSearchStarted()
+          a: nameSearchStarted(),
+          b: codepointLookupStarted()
         })
       )
       Time.run(done)
@@ -332,6 +314,45 @@ describe('Search cycles', () => {
         a: {
           status: 200,
           request: { category: codepointLookupRequestCategory },
+          body: fakeReceivedData
+        }
+      })
+      const httpSource = mockHttpSource(httpResponse$)
+      const { Action: actionSink } = searchCycles({
+        Action: Observable.never(),
+        Http: httpSource,
+        Time
+      })
+
+      Time.assertEqual(
+        actionSink,
+        Time.diagram('-------a--', {
+          a: searchResultReceived(fakeReceivedData)
+        })
+      )
+      Time.run(done)
+    })
+
+    it('sends the searchResultReceived action when a lookupAndSearch response arrives', done => {
+      const Time = mockTimeSource({ interval: 125 })
+
+      //fake data from the server
+      const fakeReceivedData = {
+        data: {
+          codepoint: {
+            value: 'U+0041',
+            name: 'LATIN CAPITAL LETTER A',
+            properties: { block: 'ASCII', generalCategory: 'Lu' }
+          },
+          codepointSearch: []
+        }
+      }
+
+      // Response stream
+      const httpResponse$ = Time.diagram('-------a--', {
+        a: {
+          status: 200,
+          request: { category: lookupAndSearchRequestCategory },
           body: fakeReceivedData
         }
       })
