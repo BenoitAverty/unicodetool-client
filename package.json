@@ -10,9 +10,9 @@
     "lint": "prettier-standard src/**/*.js tests/**/*.js",
     "lint:check": "yarn run lint && git diff-files --exit-code --name-status */**/*.js",
     "test": "jest",
-    "dev": "next src/",
+    "dev": "node src/server.js",
     "build": "next build src/",
-    "start": "next start src/",
+    "start": "NODE_ENV=production node src/server.js",
     "prepush": "yarn run lint:check"
   },
   "dependencies": {
