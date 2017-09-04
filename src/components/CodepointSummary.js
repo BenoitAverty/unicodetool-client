@@ -15,7 +15,9 @@ const CodepointSummary = ({ codepoint }) => (
       </strong>
     </p>
     <div className='characterProperties'>
-      <h1>{codepoint.value} {codepoint.name}</h1>
+      <h1>
+        {codepoint.value} {codepoint.name}
+      </h1>
       <ul>
         <li>Block: {codepoint.properties.block}</li>
         <li>General Category: {codepoint.properties.generalCategory}</li>

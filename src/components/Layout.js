@@ -25,7 +25,9 @@ const Layout = props => (
       <div className='header clearfix'>
         <nav>
           <Nav className='float-right'>
-            <NavItem><NavLink href='/about'>À propos</NavLink></NavItem>
+            <NavItem>
+              <NavLink href='/about'>À propos</NavLink>
+            </NavItem>
             <NavItem>
               <NavLink href='https://github.com/BenoitAverty/unicodetool-client'>
                 Github
@@ -47,13 +49,13 @@ const Layout = props => (
         margin-top: 1.5rem;
         padding-top: 1.5rem;
         color: #777;
-        border-top: .05rem solid #e5e5e5;
+        border-top: 0.05rem solid #e5e5e5;
       }
 
       .header {
         padding-bottom: 1rem;
         margin-bottom: 1.5rem;
-        border-bottom: .05rem solid #e5e5e5;
+        border-bottom: 0.05rem solid #e5e5e5;
       }
     `}</style>
     <style jsx global>{`

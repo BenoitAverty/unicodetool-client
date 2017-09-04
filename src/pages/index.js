@@ -67,16 +67,19 @@ const Index = props => (
         >
           à
         </a>
-        ".
-        {' '}
-        <Link href='/help'><a>More help and examples...</a></Link>
+        ".{' '}
+        <Link href='/help'>
+          <a>More help and examples...</a>
+        </Link>
       </p>
     </Jumbotron>
-    {props.searchStatus === 'FETCHING'
-      ? spinner
-      : <SearchResult status={props.searchStatus}>
-          {buildCodepointSummaries(props.searchResult)}
-        </SearchResult>}
+    {props.searchStatus === 'FETCHING' ? (
+      spinner
+    ) : (
+      <SearchResult status={props.searchStatus}>
+        {buildCodepointSummaries(props.searchResult)}
+      </SearchResult>
+    )}
     <style jsx>{`
       p {
         text-align: center;

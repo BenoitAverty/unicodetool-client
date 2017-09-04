@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs'
-import { mockTimeSource } from '@cycle/time/rxjs'
+import { mockTimeSource } from '@cycle/time/lib/rxjs'
 
 import searchCycles from '../../src/redux/cycles/searchCycles'
 import {

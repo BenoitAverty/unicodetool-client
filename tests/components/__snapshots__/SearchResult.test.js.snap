@@ -14,12 +14,12 @@ exports[`SearchResult component When a search returned a codepoint matches snaps
       Dummy content
     </p>
     <_class
-      css="div[data-jsx=\\"566834406\\"] {padding: 5px;-webkit-flex: 1 1 auto;-moz-flex: 1 1 auto;flex: 1 1 auto;}"
+      css="div[data-jsx=\\"566834406\\"]{padding:5px;-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto}"
       styleId={566834406}
     />
   </div>
   <_class
-    css="div[data-jsx=\\"714072709\\"] {display:-webkit-flex; display:flex;justify-content: center;align-items: center;-webkit-flex-flow: row wrap;-moz-flex-flow: row wrap;flex-flow: row wrap;}"
+    css="div[data-jsx=\\"714072709\\"]{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-flex-flow:row wrap;-ms-flex-flow:row wrap;flex-flow:row wrap}"
     styleId={714072709}
   />
 </div>
@@ -32,7 +32,7 @@ exports[`SearchResult component When a search returned nothing matches snapshot 
 >
   Your search didn't get any result.
   <_class
-    css="p[data-jsx=\\"3095625376\\"] {text-align: center;font-size: 1.1rem;}"
+    css="p[data-jsx=\\"3095625376\\"]{text-align:center;font-size:1.1rem}"
     styleId={3095625376}
   />
 </p>
@@ -50,7 +50,7 @@ exports[`SearchResult component When a search returned several codepoints matche
       Dummy content
     </p>
     <_class
-      css="div[data-jsx=\\"566834406\\"] {padding: 5px;-webkit-flex: 1 1 auto;-moz-flex: 1 1 auto;flex: 1 1 auto;}"
+      css="div[data-jsx=\\"566834406\\"]{padding:5px;-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto}"
       styleId={566834406}
     />
   </div>
@@ -61,12 +61,12 @@ exports[`SearchResult component When a search returned several codepoints matche
       Dummy content
     </p>
     <_class
-      css="div[data-jsx=\\"566834406\\"] {padding: 5px;-webkit-flex: 1 1 auto;-moz-flex: 1 1 auto;flex: 1 1 auto;}"
+      css="div[data-jsx=\\"566834406\\"]{padding:5px;-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto}"
       styleId={566834406}
     />
   </div>
   <_class
-    css="div[data-jsx=\\"714072709\\"] {display:-webkit-flex; display:flex;justify-content: center;align-items: center;-webkit-flex-flow: row wrap;-moz-flex-flow: row wrap;flex-flow: row wrap;}"
+    css="div[data-jsx=\\"714072709\\"]{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-flex-flow:row wrap;-ms-flex-flow:row wrap;flex-flow:row wrap}"
     styleId={714072709}
   />
 </div>

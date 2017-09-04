@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import { run } from '@cycle/rxjs-run'
 import { makeHTTPDriver } from '@cycle/http'
-import { timeDriver } from '@cycle/time/rxjs'
+import { timeDriver } from '@cycle/time/lib/rxjs'
 import { createCycleMiddleware } from 'redux-cycles'
 
 import reducer from './reducer'

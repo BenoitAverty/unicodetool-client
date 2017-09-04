@@ -64,12 +64,12 @@ exports[`Index page While fetching Matches snapshot 1`] = `
       size={28}
     />
     <_class
-      css="div[data-jsx=\\"4287716600\\"] {display:-webkit-flex; display:flex;justify-content: center;align-items: center;}"
+      css="div[data-jsx=\\"4287716600\\"]{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}"
       styleId={4287716600}
     />
   </div>
   <_class
-    css="p[data-jsx=\\"475681380\\"] {text-align: center;}"
+    css="p[data-jsx=\\"475681380\\"]{text-align:center}"
     styleId={475681380}
   />
 </Layout>
@@ -144,7 +144,7 @@ exports[`Index page With a codepoint search result (1 codepoint result) matches 
     />
   </SearchResult>
   <_class
-    css="p[data-jsx=\\"475681380\\"] {text-align: center;}"
+    css="p[data-jsx=\\"475681380\\"]{text-align:center}"
     styleId={475681380}
   />
 </Layout>
@@ -207,7 +207,7 @@ exports[`Index page Without search results matches snapshot 1`] = `
     status="IDLE"
   />
   <_class
-    css="p[data-jsx=\\"475681380\\"] {text-align: center;}"
+    css="p[data-jsx=\\"475681380\\"]{text-align:center}"
     styleId={475681380}
   />
 </Layout>
