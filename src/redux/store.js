@@ -22,11 +22,13 @@ export default function makeStore (initialState) {
     composeEnhancers(applyMiddleware(cycleMiddleware))
   )
 
-  run(cycles, {
-    Action: makeActionDriver(),
-    Http: makeHTTPDriver(),
-    Time: timeDriver
-  })
+  if (typeof window !== 'undefined') {
+    run(cycles, {
+      Action: makeActionDriver(),
+      Http: makeHTTPDriver(),
+      Time: timeDriver
+    })
+  }
 
   return store
 }
