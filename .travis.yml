@@ -10,7 +10,7 @@ script:
   - npm run lint:check
   - npm test
   - npm run build
-  - deploy_url=$(now -p -n unicodetool-client -t $NOW_TOKEN out/)
+  - deploy_url=$(cd out/ && now --static -p -n unicodetool-client -t $NOW_TOKEN)
   - BASE_URL=$deploy_url npm run e2e-test
 after_success:
-  - now alias $deploy_url unicodetool-client.now.sh
+  - now alias $deploy_url unicodetool-client.now.sh -t $NOW_TOKEN
