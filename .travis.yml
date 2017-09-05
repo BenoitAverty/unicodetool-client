@@ -1,8 +1,16 @@
 language: node_js
-node_js: "7"
-cache: yarn
+node_js: "8"
+branches:
+  only:
+    - master
+before_script:
+  - npm install -g now
 script:
   # Check that linting does not modify files. If yes, that means the project wasn't properly linted.
-  - yarn run lint:check
-  - yarn test
-  - yarn run build
+  - npm run lint:check
+  - npm test
+  - npm run build
+  - deploy_url=$(now -p -n unicodetool-client -t $NOW_TOKEN out/)
+  - BASE_URL=$deploy_url npm run e2e-test
+after_success:
+  - now alias $deploy_url unicodetool-client.now.sh

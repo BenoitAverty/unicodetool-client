@@ -10,8 +10,9 @@
     "lint": "prettier-standard src/**/*.js tests/**/*.js",
     "lint:check": "npm run lint && git diff-files --exit-code --name-status */**/*.js",
     "test": "jest",
+    "e2e-test": "echo testing on $BASE_URL",
     "dev": "next src/",
-    "build": "next build src/",
+    "build": "next build src/ && next export src/ -o out/",
     "start": "next start src/",
     "prepush": "npm run lint:check"
   },
