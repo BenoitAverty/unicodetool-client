@@ -11,6 +11,7 @@ script:
   - npm test
   - npm run build
   - deploy_url=$(cd out/ && now --static -p -n unicodetool-client -t $NOW_TOKEN)
+  - echo Deployed $deploy_url
   - BASE_URL=$deploy_url npm run e2e-test
 after_success:
   - now alias $deploy_url unicodetool-client.now.sh -t $NOW_TOKEN
