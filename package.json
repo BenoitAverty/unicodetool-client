@@ -10,7 +10,7 @@
     "lint": "prettier-standard src/**/*.js tests/**/*.js",
     "lint:check": "npm run lint && git diff-files --exit-code --name-status */**/*.js",
     "test": "jest",
-    "e2e-test": "echo testing on $BASE_URL",
+    "e2e-test": "codeceptjs run",
     "dev": "next src/",
     "build": "next build src/ && next export src/ -o out/",
     "start": "next start src/",
@@ -36,6 +36,7 @@
     "rxjs": "^5.4.3"
   },
   "devDependencies": {
+    "codeceptjs-webdriverio": "^1.1.0",
     "enzyme": "^2.8.2",
     "enzyme-to-json": "^1.5.1",
     "husky": "^0.13.3",
