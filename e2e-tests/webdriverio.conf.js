@@ -31,14 +31,12 @@ exports.config = {
             {
                 browserName: 'firefox',
                 platform: 'Windows 10',
-                version: '45.0',
                 build: process.env.TRAVIS_BUILD_NUMBER,
                 maxInstances: '1',
             },
             {
                 browserName: 'Chrome',
                 platform: 'Windows 10',
-                version: '50.0',
                 build: process.env.TRAVIS_BUILD_NUMBER,
                 maxInstances: '1',
             },
