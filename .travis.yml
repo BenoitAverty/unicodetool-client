@@ -8,6 +8,7 @@ before_script:
 script:
   - ci/build.sh
   - url=$(ci/deploy.sh)
+  - echo $url
   - ci/e2e-test.sh $url
 after_success:
   - ci/promote.sh $url
