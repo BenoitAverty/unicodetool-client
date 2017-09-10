@@ -6,12 +6,8 @@ branches:
 before_script:
   - npm install -g now
 script:
-  # Check that linting does not modify files. If yes, that means the project wasn't properly linted.
-  - npm run lint:check
-  - npm test
-  - npm run build
-  - deploy_url=$(cd out/ && now --static -p -n unicodetool-client -t $NOW_TOKEN)
-  - echo Deployed $deploy_url
-  - BASE_URL=$deploy_url npm run e2e-test
+  - ci/build.sh
+  - url=$(ci/deploy.sh)
+  - ci/e2e-test.sh $url
 after_success:
-  - now alias $deploy_url unicodetool-client.now.sh -t $NOW_TOKEN
+  - ci/promote.sh $url
