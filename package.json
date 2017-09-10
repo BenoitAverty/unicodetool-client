@@ -10,7 +10,7 @@
     "lint": "prettier-standard src/**/*.js tests/**/*.js",
     "lint:check": "npm run lint && git diff-files --exit-code --name-status */**/*.js",
     "test": "jest",
-    "e2e-test": "codeceptjs run",
+    "e2e-test": "wdio e2e-tests/webdriverio.conf.js",
     "dev": "next src/",
     "build": "next build src/ && next export src/ -o out/",
     "start": "next start src/",
@@ -36,13 +36,20 @@
     "rxjs": "^5.4.3"
   },
   "devDependencies": {
-    "codeceptjs-webdriverio": "^1.1.0",
+    "chai": "^4.1.2",
     "enzyme": "^2.8.2",
     "enzyme-to-json": "^1.5.1",
     "husky": "^0.13.3",
     "jest": "^20.0.1",
     "prettier-standard": "^5.0.0",
     "react-addons-test-utils": "^15.5.1",
-    "react-test-renderer": "^15.5.4"
+    "react-test-renderer": "^15.5.4",
+    "wdio-allure-reporter": "^0.1.2",
+    "wdio-cucumber-framework": "^1.0.2",
+    "wdio-dot-reporter": "0.0.9",
+    "wdio-sauce-service": "^0.4.0",
+    "wdio-selenium-standalone-service": "0.0.9",
+    "wdio-spec-reporter": "^0.1.2",
+    "webdriverio": "^4.8.0"
   }
 }
