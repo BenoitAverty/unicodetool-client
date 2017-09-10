@@ -10,7 +10,7 @@ script:
   - npm test
   - npm run build
   - deploy_url=$(cd out/ && now --static -p -n unicodetool-client -t $NOW_TOKEN)
-  - '[[ "$TRAVIS_PULL_REQUEST" == "false" ]] || now alias $deploy_url pr$TRAVIS_PULL_REQUEST.unicodetool-client.now.sh -t $NOW_TOKEN'
+  - '[[ "false" == "$TRAVIS_PULL_REQUEST" ]] || now alias $deploy_url pr$TRAVIS_PULL_REQUEST-unicodetool-client.now.sh -t $NOW_TOKEN'
   - BASE_URL=$deploy_url npm run e2e-test
 after_success:
   - '[[ "$TRAVIS_BRANCH" == "master" ]] && now alias $deploy_url unicodetool-client.now.sh -t $NOW_TOKEN'
