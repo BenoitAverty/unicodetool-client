@@ -88,6 +88,7 @@ exports.config = {
     services: ci ? ['sauce'] : ['selenium-standalone'],
     user: ci ? process.env.SAUCE_USER : '',
     key: ci ? process.env.SAUCE_KEY : '',
+    sauceConnect: ci && baseUrl.includes('localhost'),
     //
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
