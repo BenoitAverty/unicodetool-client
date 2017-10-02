@@ -1,9 +1,10 @@
 const Page = require('./page')
 
-const examplePage = Object.create(Page, {
+const homePage = Object.create(Page, {
     url: { value: '/' },
     pageHeading: { value: '#page-title' },
+    searchField: { value: '.UnicodeSearchField > input' },
 })
 
-module.exports = examplePage
+module.exports = homePage
 
