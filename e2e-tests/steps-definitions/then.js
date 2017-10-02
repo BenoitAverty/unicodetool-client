@@ -13,6 +13,9 @@ defineSupportCode(({ Then }) => {
     })
 
     Then(/^There are ([0-9]+) search results$/, (nResults) => {
-        expect(true).to.equal(true)
+        browser.waitForVisible(homePage.searchResult)
+
+        const elems = browser.elements(homePage.searchResultItems).length || 0
+        expect(`${elems}`).to.equal(nResults)
     })
 })
