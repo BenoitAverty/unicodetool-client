@@ -1,4 +1,4 @@
-const graphqlEndpointUrl = 'http://localhost:8080/graphql'
+const graphqlEndpointUrl = 'https://unicodetool-api.now.sh/graphql'
 
 export const codepointLookupQuery = `query findCodepoint($value: CodepointValue!) {
   codepoint(value: $value) {
