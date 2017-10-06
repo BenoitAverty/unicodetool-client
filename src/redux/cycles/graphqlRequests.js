@@ -1,3 +1,5 @@
+const graphqlEndpointUrl = 'https://unicodetool-api.now.sh/graphql'
+
 export const codepointLookupQuery = `query findCodepoint($value: CodepointValue!) {
   codepoint(value: $value) {
     value
@@ -14,7 +16,7 @@ export const codepointLookupQuery = `query findCodepoint($value: CodepointValue!
 export const codepointLookupRequestCategory = 'codepoint-lookup'
 export function codepointLookupRequest(codepoint) {
   return {
-    url: 'https://unicodetool-api.now.sh/graphql',
+    url: graphqlEndpointUrl,
     category: codepointLookupRequestCategory,
     method: 'POST',
     send: {
@@ -42,7 +44,7 @@ export const nameSearchQuery = `query nameSearch($name: String!) {
 export const nameSearchRequestCategory = 'name-search'
 export function nameSearchRequest(name) {
   return {
-    url: 'https://unicodetool-api.now.sh/graphql',
+    url: graphqlEndpointUrl,
     category: nameSearchRequestCategory,
     method: 'POST',
     send: {
@@ -82,7 +84,7 @@ export const lookupAndSearchQuery = `query lookupAndSearch($name: String!, $valu
 export const lookupAndSearchRequestCategory = 'codepoint-lookup+name-search'
 export function lookupAndSearchRequest(search) {
   return {
-    url: 'https://unicodetool-api.now.sh/graphql',
+    url: graphqlEndpointUrl,
     category: lookupAndSearchRequestCategory,
     method: 'POST',
     send: {

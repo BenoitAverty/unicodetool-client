@@ -36,7 +36,9 @@ const Layout = props => (
           </Nav>
         </nav>
 
-        <h3 className='text-muted'>UnicodeTool</h3>
+        <h3 id='page-title' className='text-muted'>
+          UnicodeTool
+        </h3>
       </div>
       {props.children}
       <footer className='footer'>
