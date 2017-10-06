@@ -12,10 +12,17 @@ defineSupportCode(({ Then }) => {
         expect(browser.getText(homePage.pageHeading)).to.equal(expectedHeading)
     })
 
-    Then(/^There are ([0-9]+) search results$/, (nResults) => {
+    Then(/^There (are|is) ([0-9]+) search results?$/, (_, nResults) => {
         browser.waitForVisible(homePage.searchResult)
 
-        const elems = browser.elements(homePage.searchResultItems).length || 0
+        const elems = browser.elements(homePage.searchResultItems).value.length || 0
         expect(`${elems}`).to.equal(nResults)
+    })
+
+    Then(/^The codepoint "(U\+[0-9A-F]{4,6}) (.+)" \((.*)\) is present in the results$/, (codepoint, name, char) => {
+        browser.waitForVisible(homePage.searchResult)
+        console.log(codepoint, name, char)
+
+        expect(browser.elements(homePage.searchResult).getText(homePage.searchResultItems)).to.include(`${char}\n${codepoint} ${name}`)
     })
 })
