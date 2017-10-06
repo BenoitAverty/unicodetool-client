@@ -9,4 +9,4 @@ Feature: Codepoint search
         Given I am on the Home Page
         When I type "U+1F47B" in the search field
         Then There is 1 search result
-        Then The codepoint "U+1F47B GHOST" (👻) is present in the results
+        And The codepoint "U+1F47B GHOST" (👻) is present in the results

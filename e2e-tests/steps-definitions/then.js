@@ -21,8 +21,14 @@ defineSupportCode(({ Then }) => {
 
     Then(/^The codepoint "(U\+[0-9A-F]{4,6}) (.+)" \((.*)\) is present in the results$/, (codepoint, name, char) => {
         browser.waitForVisible(homePage.searchResult)
-        console.log(codepoint, name, char)
 
-        expect(browser.elements(homePage.searchResult).getText(homePage.searchResultItems)).to.include(`${char}\n${codepoint} ${name}`)
+        const elements = browser.elements(homePage.searchResult).getText(homePage.searchResultItems)
+        
+        if(elements.reduce) {
+            expect(elements.reduce((acc, curr) => acc + curr)).to.include(`${char}\n${codepoint} ${name}`)
+        }
+        else {
+            expect(elements).to.include(`${char}\n${codepoint} ${name}`)
+        }
     })
 })
