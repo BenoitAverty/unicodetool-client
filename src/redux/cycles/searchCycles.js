@@ -1,14 +1,16 @@
 import { Observable } from 'rxjs'
 import { prop, propEq, test, compose, not, ifElse, isNil, F, pipe, trim, isEmpty } from 'ramda'
 
-import { changeSearch, codepointLookupStarted, nameSearchStarted, searchResultReceived } from '../actions'
+import {
+  changeSearch,
+  codepointLookupStarted,
+  nameSearchStarted,
+  searchResultReceived,
+} from '../actions'
 import {
   codepointLookupRequest,
-  codepointLookupRequestCategory,
   nameSearchRequest,
-  nameSearchRequestCategory,
   lookupAndSearchRequest,
-  lookupAndSearchRequestCategory
 } from './graphqlRequests'
 
 const isNotBlank = ifElse(isNil, F, pipe(trim, isEmpty, not))
@@ -39,19 +41,18 @@ export default function searchCycles({ Action, Http, Time }) {
   )
 
   // When an answer arrives, send the result to redux with the searchResultReceived action
-  const searchResultAction$ = Http.select().mergeAll().map(prop('body')).map(searchResultReceived)
+  const searchResultAction$ = Http.select()
+    .mergeAll()
+    .map(prop('body'))
+    .map(searchResultReceived)
 
   return {
-    Http: Observable.merge(
-      codepointLookupRequest$,
-      nameSearchRequest$,
-      lookupAndSearchRequest$
-    ),
+    Http: Observable.merge(codepointLookupRequest$, nameSearchRequest$, lookupAndSearchRequest$),
     Action: Observable.merge(
       codepointLookupAction$,
       nameSearchRequestAction$,
       lookupAndSearchRequestAction$,
-      searchResultAction$
+      searchResultAction$,
     ),
   }
 }

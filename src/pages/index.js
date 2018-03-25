@@ -6,11 +6,7 @@ import Spinner from 'react-md-spinner'
 
 import makeStore from '../redux/store'
 import { changeSearch } from '../redux/actions'
-import {
-  getCurrentSearch,
-  getSearchResult,
-  getSearchStatus
-} from '../redux/reducer'
+import { getCurrentSearch, getSearchResult, getSearchStatus } from '../redux/reducer'
 
 import Layout from '../components/Layout'
 import UnicodeSearchField from '../components/UnicodeSearchField'
@@ -20,55 +16,40 @@ import CodepointSummary from '../components/CodepointSummary'
 const spinner = (
   <div>
     <Spinner />
-    <style jsx>{`
-      div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    `}</style>
+    <style jsx>
+      {`
+        div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      `}
+    </style>
   </div>
 )
 const buildCodepointSummaries = pipe(
   defaultTo([]),
-  map(codepoint => (
-    <CodepointSummary codepoint={codepoint} key={codepoint.value} />
-  ))
+  map(codepoint => <CodepointSummary codepoint={codepoint} key={codepoint.value} />),
 )
 const Index = props => (
   <Layout>
     <Jumbotron>
-      <UnicodeSearchField
-        value={props.currentSearch}
-        onChange={props.handleSearchChange}
-      />
-      <p className='examples'>
-        Examples: "
-        <a
-          className='suggestionLink'
-          href='#'
-          onClick={e => props.handleSearchChange('U+0041')}
-        >
+      <UnicodeSearchField value={props.currentSearch} onChange={props.handleSearchChange} />
+      <p className="examples">
+        Examples: &quot;
+        <a className="suggestionLink" href="#" onClick={() => props.handleSearchChange('U+0041')}>
           U+0041
         </a>
-        ", "
-        <a
-          className='suggestionLink'
-          href='#'
-          onClick={e => props.handleSearchChange('HEART')}
-        >
+        &quot;, &quot;
+        <a className="suggestionLink" href="#" onClick={() => props.handleSearchChange('HEART')}>
           HEART
         </a>
-        ", "
-        <a
-          className='suggestionLink'
-          href='#'
-          onClick={e => props.handleSearchChange('à')}
-        >
+        &quot;, &quot;
+        <a className="suggestionLink" href="#" onClick={() => props.handleSearchChange('à')}>
           à
         </a>
-        ".{' '}
-        <Link href='/help'>
+        &quot;.{' '}
+        <Link href="/help">
           <a>More help and examples...</a>
         </Link>
       </p>
@@ -80,11 +61,13 @@ const Index = props => (
         {buildCodepointSummaries(props.searchResult)}
       </SearchResult>
     )}
-    <style jsx>{`
-      p {
-        text-align: center;
-      }
-    `}</style>
+    <style jsx>
+      {`
+        p {
+          text-align: center;
+        }
+      `}
+    </style>
   </Layout>
 )
 
@@ -95,9 +78,9 @@ export const withoutRedux = Index
 const mapStateToProps = state => ({
   currentSearch: getCurrentSearch(state),
   searchResult: getSearchResult(state),
-  searchStatus: getSearchStatus(state)
+  searchStatus: getSearchStatus(state),
 })
 const mapDispatchToProps = dispatch => ({
-  handleSearchChange: s => dispatch(changeSearch(s))
+  handleSearchChange: s => dispatch(changeSearch(s)),
 })
 export default withRedux(makeStore, mapStateToProps, mapDispatchToProps)(Index)

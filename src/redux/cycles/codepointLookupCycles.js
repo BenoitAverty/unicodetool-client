@@ -8,9 +8,7 @@ import { codepointLookupRequest, codepointLookupRequestCategory } from './graphq
 const isCodepoint = test(/^(U\+)?[0-9A-Fa-f]{4,6}/)
 
 export default function codepointLookup({ Action, Http, Time }) {
-
-  const codepointLookup$ = Action
-    .filter(propEq('type', changeSearch.toString()))
+  const codepointLookup$ = Action.filter(propEq('type', changeSearch.toString()))
     .map(prop('payload'))
     .let(Time.debounce(250))
     .distinctUntilChanged()
@@ -19,14 +17,13 @@ export default function codepointLookup({ Action, Http, Time }) {
 
   const codepointLookupStartedAction$ = codepointLookup$.mapTo(codepointLookupStarted())
 
-  const searchResultAction$ = Http
-    .select(codepointLookupRequestCategory)
+  const searchResultAction$ = Http.select(codepointLookupRequestCategory)
     .switch()
     .map(prop('body'))
     .map(searchResultReceived)
 
   return {
     Action: Observable.merge(codepointLookupStartedAction$, searchResultAction$),
-    Http: codepointLookup$
+    Http: codepointLookup$,
   }
 }

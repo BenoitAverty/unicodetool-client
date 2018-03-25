@@ -22,9 +22,9 @@ export function codepointLookupRequest(codepoint) {
     send: {
       query: codepointLookupQuery,
       variables: JSON.stringify({
-        value: codepoint
-      })
-    }
+        value: codepoint,
+      }),
+    },
   }
 }
 
@@ -50,9 +50,9 @@ export function nameSearchRequest(name) {
     send: {
       query: nameSearchQuery,
       variables: JSON.stringify({
-        name
-      })
-    }
+        name,
+      }),
+    },
   }
 }
 
@@ -91,8 +91,8 @@ export function lookupAndSearchRequest(search) {
       query: lookupAndSearchQuery,
       variables: JSON.stringify({
         name: search,
-        value: search
-      })
-    }
+        value: search,
+      }),
+    },
   }
 }

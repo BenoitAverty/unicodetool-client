@@ -1,7 +1,11 @@
 import { pipe, prop } from 'ramda'
 import { combineReducers } from 'redux'
 
-import search, { getCurrentSearch as _getCurrentSearch, getSearchResult as _getSearchResult, getSearchStatus as _getSearchStatus } from './searchReducer'
+import search, {
+  getCurrentSearch as _getCurrentSearch,
+  getSearchResult as _getSearchResult,
+  getSearchStatus as _getSearchStatus,
+} from './searchReducer'
 
 // Root reducer
 export default combineReducers({ search })

@@ -1,4 +1,4 @@
-// next.config.js
+/* eslint-disable */
 module.exports = {
   exportPathMap: function () {
     return {

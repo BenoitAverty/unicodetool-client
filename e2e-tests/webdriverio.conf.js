@@ -1,3 +1,4 @@
+/* eslint-disable */
 const ci = process.env.CI && process.env.CI === "true"
 const baseUrl = process.env.BASE_URL || "http://localhost:3000"
 
