@@ -249,7 +249,7 @@ describe('Search cycles', () => {
     it('sends the searchResultReceived action when a nameSearch response arrives', done => {
       const Time = mockTimeSource({ interval: 125 })
 
-      //fake data from the server
+      // fake data from the server
       const fakeReceivedData = {
         data: {
           codepointSearch: [
@@ -298,7 +298,7 @@ describe('Search cycles', () => {
     it('sends the searchResultReceived action when a codepointLookup response arrives', done => {
       const Time = mockTimeSource({ interval: 125 })
 
-      //fake data from the server
+      // fake data from the server
       const fakeReceivedData = {
         data: {
           codepoint: {
@@ -336,7 +336,7 @@ describe('Search cycles', () => {
     it('sends the searchResultReceived action when a lookupAndSearch response arrives', done => {
       const Time = mockTimeSource({ interval: 125 })
 
-      //fake data from the server
+      // fake data from the server
       const fakeReceivedData = {
         data: {
           codepoint: {
