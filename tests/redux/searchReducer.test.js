@@ -1,14 +1,11 @@
-import {
-  changeSearch,
-  codepointLookupStarted,
-  searchResultReceived
-} from '../../src/redux/actions'
+/* eslint-env jest */
+import { changeSearch, codepointLookupStarted, searchResultReceived } from '../../src/redux/actions'
 
 // Reducer under test
 import search, {
   getCurrentSearch,
   getSearchResult,
-  getSearchStatus
+  getSearchStatus,
 } from '../../src/redux/reducer/searchReducer'
 
 describe('Search Reducer', () => {
@@ -58,7 +55,7 @@ describe('Search Reducer', () => {
 
   it('Has the received codepoints in its searchResult attribute after a searchResultReceived action', () => {
     const action = searchResultReceived({
-      data: { codepoint: { value: '0041' } }
+      data: { codepoint: { value: '0041' } },
     })
     const actual = search({ searchResult: [] }, action)
 
@@ -67,7 +64,7 @@ describe('Search Reducer', () => {
 
   it('Clears the searchResult attribute when receiving a null codepoint', () => {
     const action = searchResultReceived({
-      data: { codepoint: null }
+      data: { codepoint: null },
     })
     const actual = search({ searchResult: [{ value: '0041' }] }, action)
 

@@ -1,4 +1,5 @@
-import { shallow, mount, render } from 'enzyme'
+/* eslint-env jest */
+import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 
 import CodepointSummary from '../../src/components/CodepointSummary'
@@ -11,8 +12,8 @@ describe('CodepointSummary component', () => {
         name: 'LATIN CAPITAL LETTER A',
         properties: {
           block: 'ASCII',
-          generalCategory: 'Lu'
-        }
+          generalCategory: 'Lu',
+        },
       }
 
       const comp = shallow(<CodepointSummary codepoint={codepoint} />)
@@ -28,8 +29,8 @@ describe('CodepointSummary component', () => {
         name: 'COMBINING DOT ABOVE',
         properties: {
           block: 'Diacriticals',
-          generalCategory: 'Mn'
-        }
+          generalCategory: 'Mn',
+        },
       }
 
       const comp = shallow(<CodepointSummary codepoint={codepoint} />)

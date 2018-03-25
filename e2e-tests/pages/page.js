@@ -1,10 +1,10 @@
-/** Stateless prototype object required for all pages **/
+/* global browser */
+/** Stateless prototype object required for all pages */
 
-function Page() {
+class Page {
+  static open(path) {
+    browser.url(`/${path}`)
+  }
 }
 
-Page.prototype.open = function (path) {
-    browser.url('/' + path);
-};
-
-module.exports = new Page();
+module.exports = new Page()

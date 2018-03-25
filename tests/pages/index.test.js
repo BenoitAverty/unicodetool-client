@@ -1,17 +1,14 @@
+/* eslint-env jest */
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 
-import { withoutRedux as Index } from '../../src/pages/index.js'
+import { withoutRedux as Index } from '../../src/pages/index'
 
 describe('Index page', () => {
   describe('Without search results', () => {
     it('matches snapshot', () => {
       const page = shallow(
-        <Index
-          currentSearch='current search'
-          handleSearchChange={() => {}}
-          searchStatus='IDLE'
-        />
+        <Index currentSearch="current search" handleSearchChange={() => {}} searchStatus="IDLE" />,
       )
 
       expect(toJson(page)).toMatchSnapshot()
@@ -20,10 +17,7 @@ describe('Index page', () => {
     it('fires the proper callback when the search field changes', () => {
       const callbackMock = jest.fn()
       const page = shallow(
-        <Index
-          currentSearch='current search'
-          handleSearchChange={callbackMock}
-        />
+        <Index currentSearch="current search" handleSearchChange={callbackMock} />,
       )
 
       page.find('UnicodeSearchField').simulate('change', 'new value')
@@ -35,10 +29,7 @@ describe('Index page', () => {
     it('fires the changeSearch callback when clicking on suggestions', () => {
       const callbackMock = jest.fn()
       const page = shallow(
-        <Index
-          currentSearch='current search'
-          handleSearchChange={callbackMock}
-        />
+        <Index currentSearch="current search" handleSearchChange={callbackMock} />,
       )
 
       const links = page.find('a.suggestionLink')
@@ -53,11 +44,7 @@ describe('Index page', () => {
   describe('While fetching', () => {
     it('Matches snapshot', () => {
       const page = shallow(
-        <Index
-          currentSearch='U+0041'
-          searchResult={[]}
-          searchStatus='FETCHING'
-        />
+        <Index currentSearch="U+0041" searchResult={[]} searchStatus="FETCHING" />,
       )
       expect(toJson(page)).toMatchSnapshot()
     })
@@ -71,16 +58,12 @@ describe('Index page', () => {
           name: 'LATIN CAPITAL LETTER A',
           properties: {
             block: 'ASCII',
-            generalCategory: 'Lu'
-          }
-        }
+            generalCategory: 'Lu',
+          },
+        },
       ]
       const page = shallow(
-        <Index
-          currentSearch='U+0041'
-          searchResult={searchResult}
-          searchStatus='SUCCESS'
-        />
+        <Index currentSearch="U+0041" searchResult={searchResult} searchStatus="SUCCESS" />,
       )
       expect(toJson(page)).toMatchSnapshot()
     })

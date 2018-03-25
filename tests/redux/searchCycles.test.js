@@ -1,5 +1,6 @@
+/* eslint-env jest */
 import { Observable } from 'rxjs'
-import { mockTimeSource } from '@cycle/time/lib/rxjs'
+import { mockTimeSource } from '@cycle/time/rxjs'
 
 import searchCycles from '../../src/redux/cycles/searchCycles'
 import {
@@ -8,13 +9,13 @@ import {
   lookupAndSearchQuery,
   nameSearchRequestCategory,
   codepointLookupRequestCategory,
-  lookupAndSearchRequestCategory
+  lookupAndSearchRequestCategory,
 } from '../../src/redux/cycles/graphqlRequests'
 import {
   changeSearch,
   nameSearchStarted,
   codepointLookupStarted,
-  searchResultReceived
+  searchResultReceived,
 } from '../../src/redux/actions'
 
 import { mockHttpSource } from './utils'
@@ -24,13 +25,13 @@ describe('Search cycles', () => {
     const Time = mockTimeSource({ interval: 125 })
     const actionSource = Time.diagram('-a--b-', {
       a: changeSearch('test'),
-      b: changeSearch('')
+      b: changeSearch(''),
     })
 
     const { Action: actionSink, Http: httpSink } = searchCycles({
       Action: actionSource,
       Http: mockHttpSource(Observable.never()),
-      Time
+      Time,
     })
 
     Time.assertEqual(
@@ -43,17 +44,17 @@ describe('Search cycles', () => {
           send: {
             query: nameSearchQuery,
             variables: JSON.stringify({
-              name: 'test'
-            })
-          }
-        }
-      })
+              name: 'test',
+            }),
+          },
+        },
+      }),
     )
     Time.assertEqual(
       actionSink,
       Time.diagram('---a----', {
-        a: nameSearchStarted()
-      })
+        a: nameSearchStarted(),
+      }),
     )
     Time.run(done)
   })
@@ -62,12 +63,12 @@ describe('Search cycles', () => {
     it('Emits a codepoint search query when a random string is typed in', done => {
       const Time = mockTimeSource({ interval: 125 })
       const actionSource = Time.diagram('--a--', {
-        a: changeSearch('GHOST')
+        a: changeSearch('GHOST'),
       })
       const { Http: httpSink, Action: actionSink } = searchCycles({
         Action: actionSource,
         Http: mockHttpSource(Observable.never()),
-        Time
+        Time,
       })
 
       Time.assertEqual(
@@ -80,17 +81,17 @@ describe('Search cycles', () => {
             send: {
               query: nameSearchQuery,
               variables: JSON.stringify({
-                name: 'GHOST'
-              })
-            }
-          }
-        })
+                name: 'GHOST',
+              }),
+            },
+          },
+        }),
       )
       Time.assertEqual(
         actionSink,
         Time.diagram('----a--', {
-          a: nameSearchStarted()
-        })
+          a: nameSearchStarted(),
+        }),
       )
       Time.run(done)
     })
@@ -98,12 +99,12 @@ describe('Search cycles', () => {
     it('Emits a codepoint lookup request when a prefixed codepoint is typed in', done => {
       const Time = mockTimeSource({ interval: 125 })
       const actionSource = Time.diagram('--a--', {
-        a: changeSearch('U+0041')
+        a: changeSearch('U+0041'),
       })
       const { Http: httpSink, Action: actionSink } = searchCycles({
         Action: actionSource,
         Http: mockHttpSource(Observable.never()),
-        Time
+        Time,
       })
 
       Time.assertEqual(
@@ -116,17 +117,17 @@ describe('Search cycles', () => {
             send: {
               query: codepointLookupQuery,
               variables: JSON.stringify({
-                value: 'U+0041'
-              })
-            }
-          }
-        })
+                value: 'U+0041',
+              }),
+            },
+          },
+        }),
       )
       Time.assertEqual(
         actionSink,
         Time.diagram('----a--', {
-          a: codepointLookupStarted()
-        })
+          a: codepointLookupStarted(),
+        }),
       )
       Time.run(done)
     })
@@ -134,12 +135,12 @@ describe('Search cycles', () => {
     it('Emits both requests when a codepoint without prefix is typed in', done => {
       const Time = mockTimeSource({ interval: 125 })
       const actionSource = Time.diagram('--a--', {
-        a: changeSearch('0041')
+        a: changeSearch('0041'),
       })
       const { Http: httpSink, Action: actionSink } = searchCycles({
         Action: actionSource,
         Http: mockHttpSource(Observable.never()),
-        Time
+        Time,
       })
 
       Time.assertEqual(
@@ -153,18 +154,18 @@ describe('Search cycles', () => {
               query: lookupAndSearchQuery,
               variables: JSON.stringify({
                 name: '0041',
-                value: '0041'
-              })
-            }
-          }
-        })
+                value: '0041',
+              }),
+            },
+          },
+        }),
       )
       Time.assertEqual(
         actionSink,
         Time.diagram('----(ab)--', {
           a: nameSearchStarted(),
-          b: codepointLookupStarted()
-        })
+          b: codepointLookupStarted(),
+        }),
       )
       Time.run(done)
     })
@@ -174,12 +175,12 @@ describe('Search cycles', () => {
       const actionSource = Time.diagram('--a---bc--', {
         a: changeSearch('GHOST'),
         b: changeSearch('GHOSTS'),
-        c: changeSearch('GHOST')
+        c: changeSearch('GHOST'),
       })
       const { Http: httpSink } = searchCycles({
         Action: actionSource,
         Http: mockHttpSource(Observable.never()),
-        Time
+        Time,
       })
 
       Time.assertEqual(
@@ -192,11 +193,11 @@ describe('Search cycles', () => {
             send: {
               query: nameSearchQuery,
               variables: JSON.stringify({
-                name: 'GHOST'
-              })
-            }
-          }
-        })
+                name: 'GHOST',
+              }),
+            },
+          },
+        }),
       )
       Time.run(done)
     })
@@ -209,12 +210,12 @@ describe('Search cycles', () => {
         c: changeSearch('101'),
         d: changeSearch('101A'),
         e: changeSearch('101AB'),
-        f: changeSearch('101ABC')
+        f: changeSearch('101ABC'),
       })
       const { Http: httpSink, Action: actionSink } = searchCycles({
         Action: actionSource,
         Http: mockHttpSource(Observable.never()),
-        Time
+        Time,
       })
 
       Time.assertEqual(
@@ -228,18 +229,18 @@ describe('Search cycles', () => {
               query: lookupAndSearchQuery,
               variables: JSON.stringify({
                 name: '101ABC',
-                value: '101ABC'
-              })
-            }
-          }
-        })
+                value: '101ABC',
+              }),
+            },
+          },
+        }),
       )
       Time.assertEqual(
         actionSink,
         Time.diagram('---------(ab)--', {
           a: nameSearchStarted(),
-          b: codepointLookupStarted()
-        })
+          b: codepointLookupStarted(),
+        }),
       )
       Time.run(done)
     })
@@ -258,17 +259,17 @@ describe('Search cycles', () => {
               decimalValue: 197,
               name: 'LATIN CAPITAL LETTER A WITH RING ABOVE',
               __typename: 'Character',
-              character: 'Å'
+              character: 'Å',
             },
             {
               value: 'U+01FA',
               decimalValue: 506,
               name: 'LATIN CAPITAL LETTER A WITH RING ABOVE AND ACUTE',
               __typename: 'Character',
-              character: 'Ǻ'
-            }
-          ]
-        }
+              character: 'Ǻ',
+            },
+          ],
+        },
       }
 
       // Response stream
@@ -276,21 +277,21 @@ describe('Search cycles', () => {
         a: {
           status: 200,
           request: { category: nameSearchRequestCategory },
-          body: fakeReceivedData
-        }
+          body: fakeReceivedData,
+        },
       })
       const httpSource = mockHttpSource(httpResponse$)
       const { Action: actionSink } = searchCycles({
         Action: Observable.never(),
         Http: httpSource,
-        Time
+        Time,
       })
 
       Time.assertEqual(
         actionSink,
         Time.diagram('-------a--', {
-          a: searchResultReceived(fakeReceivedData)
-        })
+          a: searchResultReceived(fakeReceivedData),
+        }),
       )
       Time.run(done)
     })
@@ -304,9 +305,9 @@ describe('Search cycles', () => {
           codepoint: {
             value: 'U+0041',
             name: 'LATIN CAPITAL LETTER A',
-            properties: { block: 'ASCII', generalCategory: 'Lu' }
-          }
-        }
+            properties: { block: 'ASCII', generalCategory: 'Lu' },
+          },
+        },
       }
 
       // Response stream
@@ -314,21 +315,21 @@ describe('Search cycles', () => {
         a: {
           status: 200,
           request: { category: codepointLookupRequestCategory },
-          body: fakeReceivedData
-        }
+          body: fakeReceivedData,
+        },
       })
       const httpSource = mockHttpSource(httpResponse$)
       const { Action: actionSink } = searchCycles({
         Action: Observable.never(),
         Http: httpSource,
-        Time
+        Time,
       })
 
       Time.assertEqual(
         actionSink,
         Time.diagram('-------a--', {
-          a: searchResultReceived(fakeReceivedData)
-        })
+          a: searchResultReceived(fakeReceivedData),
+        }),
       )
       Time.run(done)
     })
@@ -342,10 +343,10 @@ describe('Search cycles', () => {
           codepoint: {
             value: 'U+0041',
             name: 'LATIN CAPITAL LETTER A',
-            properties: { block: 'ASCII', generalCategory: 'Lu' }
+            properties: { block: 'ASCII', generalCategory: 'Lu' },
           },
-          codepointSearch: []
-        }
+          codepointSearch: [],
+        },
       }
 
       // Response stream
@@ -353,21 +354,21 @@ describe('Search cycles', () => {
         a: {
           status: 200,
           request: { category: lookupAndSearchRequestCategory },
-          body: fakeReceivedData
-        }
+          body: fakeReceivedData,
+        },
       })
       const httpSource = mockHttpSource(httpResponse$)
       const { Action: actionSink } = searchCycles({
         Action: Observable.never(),
         Http: httpSource,
-        Time
+        Time,
       })
 
       Time.assertEqual(
         actionSink,
         Time.diagram('-------a--', {
-          a: searchResultReceived(fakeReceivedData)
-        })
+          a: searchResultReceived(fakeReceivedData),
+        }),
       )
       Time.run(done)
     })

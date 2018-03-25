@@ -7,8 +7,8 @@
   "author": "Benoit AVERTY",
   "license": "MIT",
   "scripts": {
-    "lint:check": "eslint 'src/**/*.js'",
-    "lint:format": "eslint --fix 'src/**/*.js'",
+    "lint:check": "eslint '**/*.js'",
+    "lint:format": "eslint --fix '**/*.js'",
     "test": "jest",
     "e2e-test": "wdio e2e-tests/webdriverio.conf.js",
     "dev": "next src/",
@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "cucumber": "^4.0.0",
     "enzyme": "^3.3.0",
     "enzyme-to-json": "^3.3.3",
     "eslint": "^4.19.1",
