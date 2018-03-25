@@ -1,8 +1,11 @@
 /* eslint-env jest */
-import { shallow } from 'enzyme'
+import { configure, shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
+import Adapter from 'enzyme-adapter-react-16'
 
 import { withoutRedux as Index } from '../../src/pages/index'
+
+configure({ adapter: new Adapter() })
 
 describe('Index page', () => {
   describe('Without search results', () => {

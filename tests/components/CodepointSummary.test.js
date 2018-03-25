@@ -1,8 +1,11 @@
 /* eslint-env jest */
-import { shallow } from 'enzyme'
+import { configure, shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
+import Adapter from 'enzyme-adapter-react-16'
 
 import CodepointSummary from '../../src/components/CodepointSummary'
+
+configure({ adapter: new Adapter() })
 
 describe('CodepointSummary component', () => {
   describe('With a complete codepoint', () => {

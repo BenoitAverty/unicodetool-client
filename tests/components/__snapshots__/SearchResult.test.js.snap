@@ -1,73 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchResult component Before any search happened matches snapshot 1`] = `null`;
+exports[`SearchResult component Before any search happened matches snapshot 1`] = `""`;
 
 exports[`SearchResult component When a search returned a codepoint matches snapshot 1`] = `
 <div
-  className="searchResult"
-  data-jsx={714072709}
+  className="jsx-1692418782 searchResult"
 >
   <div
-    data-jsx={566834406}
+    className="jsx-2381533165"
+    key=".0"
   >
     <p>
       Dummy content
     </p>
-    <_class
-      css="div[data-jsx=\\"566834406\\"]{padding:5px;-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto}"
-      styleId={566834406}
+    <JSXStyle
+      css="div.jsx-2381533165{padding:5px;-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto;}"
+      styleId="2381533165"
     />
   </div>
-  <_class
-    css="div[data-jsx=\\"714072709\\"]{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-flex-flow:row wrap;-ms-flex-flow:row wrap;flex-flow:row wrap}"
-    styleId={714072709}
+  <JSXStyle
+    css="div.jsx-1692418782{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-flex-flow:row wrap;-ms-flex-flow:row wrap;flex-flow:row wrap;}"
+    styleId="1692418782"
   />
 </div>
 `;
 
 exports[`SearchResult component When a search returned nothing matches snapshot 1`] = `
 <p
-  className="searchResult emptySearchResult"
-  data-jsx={3095625376}
+  className="jsx-3896802823 searchResult emptySearchResult"
 >
   Your search didn't get any result.
-  <_class
-    css="p[data-jsx=\\"3095625376\\"]{text-align:center;font-size:1.1rem}"
-    styleId={3095625376}
+  <JSXStyle
+    css="p.jsx-3896802823{text-align:center;font-size:1.1rem;}"
+    styleId="3896802823"
   />
 </p>
 `;
 
 exports[`SearchResult component When a search returned several codepoints matches snapshot 1`] = `
 <div
-  className="searchResult"
-  data-jsx={714072709}
+  className="jsx-1692418782 searchResult"
 >
   <div
-    data-jsx={566834406}
+    className="jsx-2381533165"
+    key=".0"
   >
     <p>
       Dummy content
     </p>
-    <_class
-      css="div[data-jsx=\\"566834406\\"]{padding:5px;-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto}"
-      styleId={566834406}
+    <JSXStyle
+      css="div.jsx-2381533165{padding:5px;-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto;}"
+      styleId="2381533165"
     />
   </div>
   <div
-    data-jsx={566834406}
+    className="jsx-2381533165"
+    key=".1"
   >
     <p>
       Dummy content
     </p>
-    <_class
-      css="div[data-jsx=\\"566834406\\"]{padding:5px;-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto}"
-      styleId={566834406}
+    <JSXStyle
+      css="div.jsx-2381533165{padding:5px;-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto;}"
+      styleId="2381533165"
     />
   </div>
-  <_class
-    css="div[data-jsx=\\"714072709\\"]{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-flex-flow:row wrap;-ms-flex-flow:row wrap;flex-flow:row wrap}"
-    styleId={714072709}
+  <JSXStyle
+    css="div.jsx-1692418782{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-flex-flow:row wrap;-ms-flex-flow:row wrap;flex-flow:row wrap;}"
+    styleId="1692418782"
   />
 </div>
 `;

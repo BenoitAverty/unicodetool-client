@@ -1,8 +1,11 @@
 /* eslint-env jest */
-import { shallow } from 'enzyme'
+import { configure, shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
+import Adapter from 'enzyme-adapter-react-16'
 
 import SearchResult from '../../src/components/SearchResult'
+
+configure({ adapter: new Adapter() })
 
 describe('SearchResult component', () => {
   describe('Before any search happened', () => {

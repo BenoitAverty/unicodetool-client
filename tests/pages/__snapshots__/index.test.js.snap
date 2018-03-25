@@ -9,13 +9,11 @@ exports[`Index page While fetching Matches snapshot 1`] = `
       value="U+0041"
     />
     <p
-      className="examples"
-      data-jsx={475681380}
+      className="jsx-3269325724 examples"
     >
       Examples: "
       <a
-        className="suggestionLink"
-        data-jsx={475681380}
+        className="jsx-3269325724 suggestionLink"
         href="#"
         onClick={[Function]}
       >
@@ -23,8 +21,7 @@ exports[`Index page While fetching Matches snapshot 1`] = `
       </a>
       ", "
       <a
-        className="suggestionLink"
-        data-jsx={475681380}
+        className="jsx-3269325724 suggestionLink"
         href="#"
         onClick={[Function]}
       >
@@ -32,8 +29,7 @@ exports[`Index page While fetching Matches snapshot 1`] = `
       </a>
       ", "
       <a
-        className="suggestionLink"
-        data-jsx={475681380}
+        className="jsx-3269325724 suggestionLink"
         href="#"
         onClick={[Function]}
       >
@@ -45,7 +41,7 @@ exports[`Index page While fetching Matches snapshot 1`] = `
         href="/help"
       >
         <a
-          data-jsx={475681380}
+          className="jsx-3269325724"
         >
           More help and examples...
         </a>
@@ -53,7 +49,7 @@ exports[`Index page While fetching Matches snapshot 1`] = `
     </p>
   </Jumbotron>
   <div
-    data-jsx={4287716600}
+    className="jsx-1742895473"
   >
     <MDSpinner
       color1="rgb(66, 165, 245)"
@@ -63,14 +59,14 @@ exports[`Index page While fetching Matches snapshot 1`] = `
       duration={1333}
       size={28}
     />
-    <_class
-      css="div[data-jsx=\\"4287716600\\"]{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}"
-      styleId={4287716600}
+    <JSXStyle
+      css="div.jsx-1742895473{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}"
+      styleId="1742895473"
     />
   </div>
-  <_class
-    css="p[data-jsx=\\"475681380\\"]{text-align:center}"
-    styleId={475681380}
+  <JSXStyle
+    css="p.jsx-3269325724{text-align:center;}"
+    styleId="3269325724"
   />
 </Layout>
 `;
@@ -84,13 +80,11 @@ exports[`Index page With a codepoint search result (1 codepoint result) matches 
       value="U+0041"
     />
     <p
-      className="examples"
-      data-jsx={475681380}
+      className="jsx-3269325724 examples"
     >
       Examples: "
       <a
-        className="suggestionLink"
-        data-jsx={475681380}
+        className="jsx-3269325724 suggestionLink"
         href="#"
         onClick={[Function]}
       >
@@ -98,8 +92,7 @@ exports[`Index page With a codepoint search result (1 codepoint result) matches 
       </a>
       ", "
       <a
-        className="suggestionLink"
-        data-jsx={475681380}
+        className="jsx-3269325724 suggestionLink"
         href="#"
         onClick={[Function]}
       >
@@ -107,8 +100,7 @@ exports[`Index page With a codepoint search result (1 codepoint result) matches 
       </a>
       ", "
       <a
-        className="suggestionLink"
-        data-jsx={475681380}
+        className="jsx-3269325724 suggestionLink"
         href="#"
         onClick={[Function]}
       >
@@ -120,7 +112,7 @@ exports[`Index page With a codepoint search result (1 codepoint result) matches 
         href="/help"
       >
         <a
-          data-jsx={475681380}
+          className="jsx-3269325724"
         >
           More help and examples...
         </a>
@@ -141,11 +133,12 @@ exports[`Index page With a codepoint search result (1 codepoint result) matches 
           "value": "U+0041",
         }
       }
+      key="U+0041"
     />
   </SearchResult>
-  <_class
-    css="p[data-jsx=\\"475681380\\"]{text-align:center}"
-    styleId={475681380}
+  <JSXStyle
+    css="p.jsx-3269325724{text-align:center;}"
+    styleId="3269325724"
   />
 </Layout>
 `;
@@ -160,13 +153,11 @@ exports[`Index page Without search results matches snapshot 1`] = `
       value="current search"
     />
     <p
-      className="examples"
-      data-jsx={475681380}
+      className="jsx-3269325724 examples"
     >
       Examples: "
       <a
-        className="suggestionLink"
-        data-jsx={475681380}
+        className="jsx-3269325724 suggestionLink"
         href="#"
         onClick={[Function]}
       >
@@ -174,8 +165,7 @@ exports[`Index page Without search results matches snapshot 1`] = `
       </a>
       ", "
       <a
-        className="suggestionLink"
-        data-jsx={475681380}
+        className="jsx-3269325724 suggestionLink"
         href="#"
         onClick={[Function]}
       >
@@ -183,8 +173,7 @@ exports[`Index page Without search results matches snapshot 1`] = `
       </a>
       ", "
       <a
-        className="suggestionLink"
-        data-jsx={475681380}
+        className="jsx-3269325724 suggestionLink"
         href="#"
         onClick={[Function]}
       >
@@ -196,7 +185,7 @@ exports[`Index page Without search results matches snapshot 1`] = `
         href="/help"
       >
         <a
-          data-jsx={475681380}
+          className="jsx-3269325724"
         >
           More help and examples...
         </a>
@@ -206,9 +195,9 @@ exports[`Index page Without search results matches snapshot 1`] = `
   <SearchResult
     status="IDLE"
   />
-  <_class
-    css="p[data-jsx=\\"475681380\\"]{text-align:center}"
-    styleId={475681380}
+  <JSXStyle
+    css="p.jsx-3269325724{text-align:center;}"
+    styleId="3269325724"
   />
 </Layout>
 `;
