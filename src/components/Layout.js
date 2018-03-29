@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import { Container, Nav, NavItem, NavLink } from 'reactstrap'
 
 const Layout = props => (
@@ -26,7 +27,9 @@ const Layout = props => (
         </nav>
 
         <h3 id="page-title" className="text-muted">
-          UnicodeTool
+          <Link prefetch href="/">
+            <a>UnicodeTool</a>
+          </Link>
         </h3>
       </div>
       {props.children}
@@ -48,6 +51,10 @@ const Layout = props => (
           padding-bottom: 1rem;
           margin-bottom: 1.5rem;
           border-bottom: 0.05rem solid #e5e5e5;
+        }
+
+        .header h3 a {
+          color: inherit;
         }
       `}
     </style>
