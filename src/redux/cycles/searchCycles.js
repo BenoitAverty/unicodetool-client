@@ -18,6 +18,8 @@ const isNotCodepoint = compose(not, test(/[0-9A-Fa-f]{4,6}/))
 const isUnprefixedCodepoint = test(/^[0-9A-Fa-f]{4,6}/)
 const isPrefixedCodepoint = test(/^U\+[0-9A-Fa-f]{4,6}/)
 
+const searchRequestCategory = 'search-request'
+
 export default function searchCycles({ Action, Http, Time }) {
   // Get the valid changes of the seearch field
   const search$ = Action.filter(propEq('type', changeSearch.toString()))
@@ -28,9 +30,15 @@ export default function searchCycles({ Action, Http, Time }) {
 
   // Each time the search field change to a correct value, send the right graphql request based
   // on search field content
-  const codepointLookupRequest$ = search$.filter(isPrefixedCodepoint).map(codepointLookupRequest)
-  const nameSearchRequest$ = search$.filter(isNotCodepoint).map(nameSearchRequest)
-  const lookupAndSearchRequest$ = search$.filter(isUnprefixedCodepoint).map(lookupAndSearchRequest)
+  const codepointLookupRequest$ = search$
+    .filter(isPrefixedCodepoint)
+    .map(codepointLookupRequest(searchRequestCategory))
+  const nameSearchRequest$ = search$
+    .filter(isNotCodepoint)
+    .map(nameSearchRequest(searchRequestCategory))
+  const lookupAndSearchRequest$ = search$
+    .filter(isUnprefixedCodepoint)
+    .map(lookupAndSearchRequest(searchRequestCategory))
 
   // For each request, send an action to notify it started
   const codepointLookupAction$ = codepointLookupRequest$.mapTo(codepointLookupStarted())
@@ -41,7 +49,7 @@ export default function searchCycles({ Action, Http, Time }) {
   )
 
   // When an answer arrives, send the result to redux with the searchResultReceived action
-  const searchResultAction$ = Http.select()
+  const searchResultAction$ = Http.select(searchRequestCategory)
     .mergeAll()
     .map(prop('body'))
     .map(searchResultReceived)
