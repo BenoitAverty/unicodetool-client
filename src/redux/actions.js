@@ -6,3 +6,5 @@ export const nameSearchStarted = createAction('NAME_SEARCH_STARTED')
 export const searchResultReceived = createAction('SEARCH_RESULT_RECEIVED')
 
 export const fetchCodepointDetails = createAction('FETCH_CODEPOINT_DETAILS')
+export const codepointLookupFailure = createAction('CODEPOINT_LOOKUP_FAILURE')
+export const codepointLookupSuccess = createAction('CODEPOINT_LOOKUP_SUCCESS')

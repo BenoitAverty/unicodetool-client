@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Codepoint page With an existing codepoint matches snapshot 1`] = `
+<Layout>
+  <p />
+  <CodepointSummary
+    codepoint={Object {}}
+  />
+</Layout>
+`;
