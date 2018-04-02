@@ -30,6 +30,7 @@ const CodepointSummary = ({ codepoint }) => (
             border-radius: 0.5rem;
             color: white;
             padding: 0.5rem;
+            cursor: pointer;
           }
           .displayedCharacter {
             flex: 0 1 auto;
